@@ -14,3 +14,7 @@ then Start the development server:
 ```bash
 npm run start
 ```
+
+then navigate to `http://localhost:8080/` in the same browser you run Blockstack with.
+
+then use ...
