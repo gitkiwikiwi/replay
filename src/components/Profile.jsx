@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Player } from 'video-react';
 import PropTypes from 'prop-types';
-import DownloadButton from './DownloadButton.jsx';
+import Vidget from './Vidget.jsx';
 
 import classNames from 'classnames';
 
@@ -41,7 +41,7 @@ export default class Profile extends Component {
     const { person } = this.state;
     return (
       !isSignInPending() ?
-      <div className="panel-welcome" id="section-1">
+      <div className="top-panel" id="section-1">
         <div className="video-section">
             <Player src="http://media.w3.org/2010/05/bunny/movie.mp4" autoPlay></Player> 
         </div>
