@@ -11,16 +11,14 @@ export default class Signin extends Component {
 
     return (
       <div className="panel-landing" id="section-1">
-        <img src={logo} alt={"logo"}/>
+        
         <h1 className="landing-heading">Welcome to Replay</h1>
-        <p className="lead">
-          <button
-            className="btn btn-primary btn-lg"
-            id="signin-button"
-            onClick={ handleSignIn.bind(this) }
-          >
+            <p className="lead"></p>
+        <img src={logo} alt={"logo"}/>
+            <p className="lead">
+            <button className="btn btn-primary btn-lg" id="signin-button" onClick={ handleSignIn.bind(this) }>
             Sign in with Blockstack
-          </button>
+            </button>
         </p>
       </div>
     );

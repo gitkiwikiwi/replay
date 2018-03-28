@@ -3,7 +3,11 @@ import { Player } from 'video-react';
 import PropTypes from 'prop-types';
 import Vidget from './Vidget.jsx';
 
+
+
 import classNames from 'classnames';
+
+
 
 const propTypes = {
   player: PropTypes.object,
@@ -41,7 +45,7 @@ export default class Profile extends Component {
     const { person } = this.state;
     return (
       !isSignInPending() ?
-      <div className="top-panel" id="section-1">
+      <div className="panel-welcome" id="section-1">
         <div className="video-section">
             <Player src="http://media.w3.org/2010/05/bunny/movie.mp4" autoPlay></Player> 
         </div>
