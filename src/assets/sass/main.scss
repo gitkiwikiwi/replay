@@ -1,0 +1,160 @@
+.btn-default {
+  color: #0db78e;
+  border-radius: 20px;
+  &:focus {outline: none;}
+  &.landing {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &.list {
+    &:hover {
+      border-radius: 0px;
+      background-color: inherit;
+      border-bottom: 2px solid;
+      transition: all .2s ease-in-out
+      
+    }
+  }
+
+  
+}
+.md-icon{
+  font-size: 17px !important;
+}
+.on {
+  margin-right: 40px;
+}
+.off {
+  margin-right: 24px;
+}
+.public {
+  margin-right: 17%;
+}
+.private {
+  margin-right: 14%;
+}
+.hello {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & p {
+    color: white;
+  }
+  &.landing {
+    opacity: 0.9;
+    height: 100%;
+    
+  }
+}
+.modal-main {
+  background-color: #f3f7f6;
+  width: 326px;
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  color: rgb(52, 154, 129);
+  font-size: 13px;
+  border-radius: 20px;
+  font-weight: 500;
+  
+  & .md-dialog-title {
+    font-weight: 500;  
+  }
+  & .md-field {
+    border-bottom: 1px solid;
+    font-weight: 300;
+    & label {
+    font-weight: 500;
+  }
+  }
+}
+.list-group-item {
+  &.completed label {
+    text-decoration: line-through;
+  }
+  &.task {
+    border: none;
+    color: #777777;
+    font-weight: 600;
+    font-size: small;
+    &:hover {
+      background-color: #f3f7f6;
+    }
+
+  }
+
+  .delete {
+    display: none;
+    &.task-btn {
+      display: none
+    }
+  }
+
+  &:hover .delete {
+    display: inline;
+    color: grey;
+    font-weight: normal; 
+    &.edit {
+      margin-right: 1%;
+      font-weight: 500
+    }
+    &.dlt {
+      font-weight: 500;        
+    }
+        
+    &:hover {
+      &.edit {
+      color: #47b79c;
+    }
+      text-decoration: none;
+      color: red;
+    }
+  }
+}
+
+.landing-subtitle{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.landing-title{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.landing-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.landing-button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.landing-heros{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.btn-modal {
+  background-color: #47b79c;
+  color: white;
+  font-size: small;
+  font-weight: 500;
+  &.confirm {
+    margin-right: 25%;
+    margin-bottom: 2%;
+  }
+  &.cancel {
+    margin-right: 9%;
+    margin-bottom: 2%;
+  }
+  &:hover {
+    background-color: #23caa3
+  }
+}

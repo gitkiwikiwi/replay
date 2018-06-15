@@ -1,0 +1,10 @@
+{
+  "name": "Replay",
+  "start_url": "https://replay.cryptocracy.io",
+  "description": "A decentralized video sharing app",
+  "icons": [{
+    "src": "https://raw.githubusercontent.com/cryptocracy/images/master/replay.png",
+    "sizes": "400x400",
+    "type": "image/png"
+  }]
+}
