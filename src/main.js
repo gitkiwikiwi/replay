@@ -10,6 +10,9 @@ import lodash from 'lodash'
 import 'vue-material/dist/vue-material.css'
 import draggable from 'vuedraggable'
 
+import VueTabs from 'vue-nav-tabs'
+import 'vue-nav-tabs/themes/vue-tabs.css'
+
 window.blockstack = require('blockstack')
 window.axios = require('axios')
 
@@ -20,6 +23,7 @@ Vue.use(VueMaterial)
 Vue.use(lodash)
 Vue.use(ToggleButton)
 Vue.config.productionTip = false
+Vue.use(VueTabs)
 
 /* eslint-disable no-new */
 new Vue({

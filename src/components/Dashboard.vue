@@ -5,6 +5,7 @@
 
     <div class="container">
       <div class="row">
+        
         <!-- <Modal for creating task -->
         <md-dialog class="modal-main" :md-active.sync="createTaskModal">
           <md-dialog-title>Create New Task</md-dialog-title>
@@ -71,14 +72,14 @@
 
         <!-- Modal for creating project -->
         <md-dialog class="modal-main" :md-active.sync="createProjectModal">
-          <md-dialog-title>Create New Project</md-dialog-title>
+          <md-dialog-title>Upload New Video</md-dialog-title>
           <md-dialog-content>
 
             <md-field>
-              <label for="project">Enter Project Name/Id</label>
-              <md-input v-model="project" aria-placeholder="name" name="project" id="project" />
+              <label for="project">Video Title</label>
+                <md-input v-model="project" aria-placeholder="name" name="project" id="project" />
             </md-field>
-
+            <md-input type="file" @change="onFileChange" />
             <div>
               <label :class="{private:encryptionStatus==='Private', public:encryptionStatus==='Public'}" for="encryptionStatus">Encryption:</label>
                 <!-- On of toggle button start -->
@@ -90,11 +91,12 @@
                 :labels="{checked: 'on', unchecked: 'Off'}"/>
                 <!-- toggle button ends -->
                 <span>{{encryptionStatus}}</span>
-              </div>
+            </div>
+
              
           </md-dialog-content>
           <md-dialog-actions>
-            <md-button @click="addProject" class="btn btn-default btn-modal confirm" :disabled="! project" type="submit">Create</md-button>
+            <md-button @click="addProject" class="btn btn-default btn-modal confirm" :disabled="! project" type="submit">Upload</md-button>
             <md-button @click="createProjectModal=false" class="btn btn-default btn-modal cancel " type="cancel">Cancel</md-button>
           </md-dialog-actions>
 
@@ -102,56 +104,77 @@
         <!-- Modal for creating project ends -->
 
         <div class="col-md-8 col-md-offset-2">
-          
-          <h1 class="page-header">Souq Project Tasks
-            <md-avatar class="md-avatar-icon md-small pull-right">
+        <small><span class="sign-out"> (<a class="" href="#" @click.prevent="signOut">Sign Out</a>)</span></small>
+
+         <h1 class="page-header">Replay
+            <md-avatar class="md-avatar-icon md-medium pull-right">
               <img :src="user.avatarUrl() ? user.avatarUrl() : '/avatar-placeholder.png'" class="avatar">
             </md-avatar>
-            <small><span class="sign-out">(<a class="" href="#" @click.prevent="signOut">Sign Out</a>)</span></small>
-          </h1>
-          <h2 class="user-info">
-            <small>
-              {{ user.name() ? user.name() : 'Nameless Person'}}'s Project Tasks
-            </small>
-            <small class="pull-right">
-            {{ user.username ? user.username : user.identityAddress }}
-            </small>
-
-          </h2>
-
+                  
           <!-- Button for creating project -->
-          <button @click="project = ''; createProjectModal = true" class=" btn btn-default landing pull-right mt-30"><md-icon style="font-size:17px">add</md-icon>Add Project</button>
-          <!-- Projects listing -->
-          <div class="list-group pt15">
-            <draggable v-model="projects" @change="handleChange('PROJECT', {projects})">
-            <div v-for="project in projects"
-              class="list-group-item"
-              :class="{completed: project.completed}"
-              :key="project.id">
-              <label>
-                {{ project.text }}
-              </label>
-              <button v-clipboard:copy="hubUrl + project.id + '.json'" class="btn btn-default bb2 pl0 ml15 list" href="#"><md-icon class="fs14-ni">file_copy</md-icon>Copy Path</button>
-              <button @click.prevent="addTask(project)" class="btn btn-default bb2 pl0  list" href="#"><md-icon class="fs14-ni">add</md-icon>Add Task</button>
-              <a @click.prevent="projects.splice(projects.indexOf(project), 1), updateProjectList(projects)" class="delete pull-right" href="#">Remove Project</a>
-              <!-- Task list for project -->
-              
-                <div v-for="(tasks, index) in taskArray" v-if="tasks.id == project.id" :key='index' >
-                  <draggable v-model="tasks.tasks" @change="handleChange('TASK', {taskid:tasks.id, tasks: tasks.tasks, project: project})">
-                    <div :class="{completed: task.complete}" class="list-group-item task task-modal-font" v-for="(task, index) in tasks.tasks" :key="index">
-                      <label>
-                        {{task.name}}
-                      </label>
-                      <a @click.prevent="deleteTask(index, project)" class="delete dlt task-btn pull-right" href="#">Delete</a>
-                      <a @click.prevent="editTask(task,index, project)" class="edit task-btn delete pull-right" href="#">Edit</a>
+          <button @click="project = ''; createProjectModal = true" class=" btn btn-default landing pull-right mt-10"><md-icon style="font-size:10px">add</md-icon>Upload Video</button>
+
+        </h1>
+        <vue-tabs>
+            <v-tab title="Feed">
+            <h2 class="feed-info">
+                <small class="pull-right">
+                {{ user.username ? user.username : user.identityAddress }}
+                </small>
+            </h2>
+              Feed
+            </v-tab>
+
+            <v-tab title="Explorer">
+            <h2 class="explorer-info">
+                <small class="pull-right">
+                {{ user.username ? user.username : user.identityAddress }}
+                </small>
+            </h2>
+              Explorer
+            </v-tab>
+
+            <v-tab title="My Channel" icon="ti-user">
+            <h2 class="user-info">
+                <small class="pull-right">
+                {{ user.username ? user.username : user.identityAddress }}
+                </small>
+            </h2>
+                {{ user.name() ? user.name() : 'Nameless Person'}}'s Channel
+            <!-- Projects listing -->
+              <div class="list-group pt15">
+                <draggable v-model="projects" @change="handleChange('PROJECT', {projects})">
+                <div v-for="project in projects"
+                  class="list-group-item"
+                  :class="{completed: project.completed}"
+                  :key="project.id">
+                  <label>
+                    {{ project.text }}
+                  </label>
+                  <button v-clipboard:copy="hubUrl + project.id + '.json'" class="btn btn-default bb2 pl0 ml15 list" href="#"><md-icon class="fs14-ni">file_copy</md-icon>Copy Path</button>
+                  <button @click.prevent="addTask(project)" class="btn btn-default bb2 pl0  list" href="#"><md-icon class="fs14-ni">add</md-icon>Add Task</button>
+                  <a @click.prevent="projects.splice(projects.indexOf(project), 1), updateProjectList(projects)" class="delete pull-right" href="#">Remove Project</a>
+                  <!-- Task list for project -->
+
+                    <div v-for="(tasks, index) in taskArray" v-if="tasks.id == project.id" :key='index' >
+                      <draggable v-model="tasks.tasks" @change="handleChange('TASK', {taskid:tasks.id, tasks: tasks.tasks, project: project})">
+                        <div :class="{completed: task.complete}" class="list-group-item task task-modal-font" v-for="(task, index) in tasks.tasks" :key="index">
+                          <label>
+                            {{task.name}}
+                          </label>
+                          <a @click.prevent="deleteTask(index, project)" class="delete dlt task-btn pull-right" href="#">Delete</a>
+                          <a @click.prevent="editTask(task,index, project)" class="edit task-btn delete pull-right" href="#">Edit</a>
+                        </div>
+                      </draggable>
                     </div>
-                  </draggable>
+                  <!-- Task list ends -->
                 </div>
-              <!-- Task list ends -->
-            </div>
-            </draggable>
-          </div>
-          <!-- Project list ends -->
+                </draggable>
+              </div>
+              <!-- Project list ends -->
+            </v-tab>
+        </vue-tabs>
+            
 
         </div>
       </div>
