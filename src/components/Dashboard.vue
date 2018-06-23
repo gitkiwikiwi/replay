@@ -122,7 +122,7 @@
                 {{ user.username ? user.username : user.identityAddress }}
                 </small>
             </h2>
-              <video id="videoarea" controls="controls" poster="" src="http://html5videoformatconverter.com/data/images/happyfit2.mp4" type="video/mp4"></video>
+              <video id="videoarea" controls="controls" poster="" src="https://html5videoformatconverter.com/data/images/happyfit2.mp4" type="video/mp4"></video>
             </v-tab>
 
             <v-tab title="Explorer">
