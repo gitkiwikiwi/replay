@@ -43,7 +43,7 @@
                       <v-btn slot="activator" @click.stop="updateContacts(item, 'deletion')" outline fab small color="teal accent-4">
                         <v-icon  color="purple accent-4">delete</v-icon>
                       </v-btn>
-                      <span>Remove from Channels</span>
+                      <span>Unsubscribe from this Channel</span>
                     </v-tooltip>
                   </v-list-tile-action>
                 </v-list-tile>

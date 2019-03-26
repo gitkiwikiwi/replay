@@ -34,14 +34,14 @@
                     <v-btn slot="activator" @click.stop="updateContacts(item, 'addition')" outline fab small color="purple accent-4">
                       <v-icon  color="purple accent-4">add_to_queue</v-icon>
                     </v-btn>
-                    <span>Subscribe to Channel</span>
+                    <span>Subscribe to this Channel</span>
                   </v-tooltip>
 
                   <v-tooltip bottom v-else>
                     <v-btn slot="activator" @click.stop="updateContacts(item, 'deletion')" outline fab small color="purple accent-4">
                       <v-icon  color="purple accent-4">delete</v-icon>
                     </v-btn>
-                    <span>Unsubscribe from Channel</span>
+                    <span>Unsubscribe from this Channel</span>
                   </v-tooltip>
                 </v-list-tile-action>
               </v-list-tile>
@@ -54,7 +54,7 @@
       <v-progress-circular
         :size="70"
         :width="5"
-        color="teal accent-4"
+        color="purple accent-4"
         indeterminate
       ></v-progress-circular>
     </div>
