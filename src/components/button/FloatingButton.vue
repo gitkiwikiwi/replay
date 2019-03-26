@@ -14,38 +14,12 @@
       slot="activator"
       v-model="fab"
       color="teal accent-4"
+      :to="{ name: 'AddImage', params: { imageProp: null } }"
       dark
       fab
     >
-      <v-icon>add</v-icon>
+      <v-icon>video_call</v-icon>
       <v-icon>close</v-icon>
-    </v-btn>
-    <v-btn
-      fab
-      dark
-      small
-      color="indigo lighten-1"
-      to="/"
-    >
-      <v-icon>work</v-icon>
-    </v-btn>
-    <v-btn
-      fab
-      dark
-      small
-      color="green lighten-1"
-      :to="{ name: 'AddTask', params: { taskProp: null } }"
-    >
-      <v-icon>list</v-icon>
-    </v-btn>
-    <v-btn
-      fab
-      dark
-      small
-      color="orange lighten-1"
-      :to="{ name: 'AddEvent', params: { eventProp: null } }"
-    >
-      <v-icon>today</v-icon>
     </v-btn>
     <v-btn
       fab
@@ -54,25 +28,7 @@
       color="green lighten-1"
       :to="{ name: 'AddImage', params: { imageProp: null } }"
     >
-      <v-icon>image</v-icon>
-    </v-btn>
-    <!-- <v-btn
-      fab
-      dark
-      small
-      color="blue lighten-1"
-      :to="{ name: 'AddTag', params: { tagProp: null } }"
-    >
-      <v-icon>label</v-icon>
-    </v-btn> -->
-    <v-btn
-      fab
-      dark
-      small
-      color="red lighten-1"
-      :to="{ name: 'AddMarker', params: { markerProp: null } }"
-    >
-      <v-icon>place</v-icon>
+      <v-icon>video_call</v-icon>
     </v-btn>
   </v-speed-dial>
 </template>
