@@ -20,7 +20,7 @@ const items = [
     class: 'step9'
   },
   {
-    color: 'purple lighten-2',
+    color: 'green lighten-2',
     action: 'subscriptions',
     title: 'Latest',
     linkTo: '/'
@@ -32,7 +32,7 @@ const items = [
     linkTo: '/favourite-contacts'
   },
   {
-    color: 'purple lighten-2',
+    color: 'teal lighten-1',
     action: 'video_library',
     title: 'My Library',
     items: [
