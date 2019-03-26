@@ -40,7 +40,7 @@
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-tooltip bottom>
-                        <v-icon slot="activator" color="purple accent-4">chat</v-icon>
+                        <v-icon slot="activator" color="purple accent-4">ondemand_video</v-icon>
                         <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
                         <span v-else> {{ userData.username }} </span>
                       </v-tooltip>
@@ -49,30 +49,10 @@
                     <v-list-tile-content>
                       <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
                       <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-                      <v-list-tile-sub-title>Fully Qualified Name</v-list-tile-sub-title>
+                      <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-divider inset></v-divider>
-
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon color="purple accent-4">mail</v-icon>
-                    </v-list-tile-action>
-
-                    <v-list-tile-content>
-                      <v-list-tile-title>{{userData.profile['@type'] || 'None'}}</v-list-tile-title>
-                      <v-list-tile-sub-title>Type</v-list-tile-sub-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-
-                  <v-list-tile>
-                    <v-list-tile-action><v-icon>account_box</v-icon></v-list-tile-action>
-
-                    <v-list-tile-content>
-                      <v-list-tile-title v-if="userData.profile.hasOwnProperty('account')" >{{userData.profile.account.length || 0}}</v-list-tile-title>
-                      <v-list-tile-sub-title>Account</v-list-tile-sub-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
                 </v-list>
               </v-card-title>
             </v-card>
@@ -80,11 +60,6 @@
 
           <v-flex  xs12 sm7>
             <v-card class="br20">
-              <v-card-title>
-                <div class="headline">Account Resources</div>
-              </v-card-title>
-              <v-card-text>
-              </v-card-text>
               <v-list>
                 <v-list-tile>
                   <v-list-tile-action>
