@@ -13,17 +13,17 @@
 
 const items = [
   {
-    color: 'red',
-    action: 'whatshot',
-    title: 'Whats Hot',
-    linkTo: '/quorum',
-    class: 'step9'
-  },
-  {
     color: 'teal lighten-3',
     action: 'ondemand_video',
     title: 'Latest',
     linkTo: '/'
+  },
+  {
+    color: 'red',
+    action: 'whatshot',
+    title: 'Trending',
+    linkTo: '/quorum',
+    class: 'step9'
   },
   {
     color: 'green lighten-2',
@@ -35,6 +35,12 @@ const items = [
     ]
   },
   {
+    color: 'purple lighten-3',
+    action: 'recent_actors',
+    title: 'Channels',
+    linkTo: '/favourite-contacts'
+  },
+  {
     color: 'brown lighten-2',
     action: 'account_balance_wallet',
     title: 'Wallet',
@@ -44,12 +50,6 @@ const items = [
       { title: 'Receive', linkTo: '/wallet/receive' },
       { title: 'History', linkTo: '/wallet/history' }
     ]
-  },
-  {
-    color: 'purple lighten-3',
-    action: 'recent_actors',
-    title: 'Channels',
-    linkTo: '/favourite-contacts'
   }
 ]
 
