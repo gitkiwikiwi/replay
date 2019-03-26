@@ -53,7 +53,7 @@
         </v-flex>
       </v-layout>
       <div v-else class="mt-5 text-xs-center">
-        <h1>No contacts found</h1>
+        <h1>You're not subscribed to any Channels yet.</h1>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@
                 <!-- <v-btn outline fab small color="teal accent-4"><v-icon  large @click="addToContacts(item)" color="teal accent-4">checked</v-icon></v-btn> -->
                 <v-list-tile-avatar class="ml-2">
                   <img v-if="item.profile.hasOwnProperty('image')" :src="item.profile.image[0].contentUrl">
-                  <v-icon v-else large color="teal accent-4">person</v-icon>
+                  <v-icon v-else large color="purple accent-4">person</v-icon>
 
                 </v-list-tile-avatar>
 
@@ -31,17 +31,17 @@
 
                 <v-list-tile-action>
                   <v-tooltip bottom v-if="!addedContacts.hasOwnProperty(item.fullyQualifiedName)">
-                    <v-btn slot="activator" @click.stop="updateContacts(item, 'addition')" outline fab small color="teal accent-4">
-                      <v-icon  color="teal accent-4">person_add</v-icon>
+                    <v-btn slot="activator" @click.stop="updateContacts(item, 'addition')" outline fab small color="purple accent-4">
+                      <v-icon  color="purple accent-4">add_to_queue</v-icon>
                     </v-btn>
-                    <span>Add to Contacts</span>
+                    <span>Subscribe to Channel</span>
                   </v-tooltip>
 
                   <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateContacts(item, 'deletion')" outline fab small color="teal accent-4">
-                      <v-icon  color="teal accent-4">delete</v-icon>
+                    <v-btn slot="activator" @click.stop="updateContacts(item, 'deletion')" outline fab small color="purple accent-4">
+                      <v-icon  color="purple accent-4">delete</v-icon>
                     </v-btn>
-                    <span>Remove from Contacts</span>
+                    <span>Unsubscribe from Channel</span>
                   </v-tooltip>
                 </v-list-tile-action>
               </v-list-tile>
@@ -59,7 +59,7 @@
       ></v-progress-circular>
     </div>
     <div v-else class="mt-5 text-xs-center">
-      <h1>No contacts found</h1>
+      <h1>No Channels found</h1>
     </div>
   </div>
 </template>

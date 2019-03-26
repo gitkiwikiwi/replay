@@ -73,7 +73,7 @@ export default {
     logo,
     // for dropdown on the rigth hand side of search bar
     selectItems: [
-      { text: 'Contact', value: 'contacts' },
+      { text: 'Channels', value: 'contacts' },
       { text: 'Tags', value: 'tags' }
     ],
     searchType: 'contacts',
