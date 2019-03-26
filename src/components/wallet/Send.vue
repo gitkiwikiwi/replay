@@ -2,7 +2,7 @@
   <v-layout row v-if="!stateIsLoading">
     <v-flex xs12 sm8 offset-sm2>
       <v-card class="wallet-card wallet-card--balance br20 text-xs-center">
-        Current balance: {{ this.addressData.final_balance }} satoshi
+        Current balance: {{ this.addressData.final_balance }} (Satoshi)
       </v-card>
       <v-card class="wallet-card br20">
         <div class="wallet-title">Send to:</div>
@@ -14,13 +14,13 @@
             item-value="btcAddress"
             :disabled="isLoading"
             chips
-            label="Select from contacts"
-            hint="Showing contacts which has BTC address associated with them."
+            label="Select from Subscribed Channels"
+            hint="Showing Subscribed Channels that have a BTC address associated with them."
             :persistent-hint="true"
           >
             <template v-if="selectedContact && typeof selectedContact === 'object' && Object.keys(selectedContact).length > 0" slot="selection" slot-scope="data">
               <v-chip
-                color="#1ebea5c7"
+                color="#a135f0"
                 text-color="white"
                 :selected="data.selected"
                 :disabled="data.disabled"
@@ -40,28 +40,28 @@
             </template>
           </v-combobox>
 
-          <p class="mt-3">Or directly enter the address</p>
+          <p class="mt-3">Or directly enter a address</p>
 
           <v-text-field
             v-model="addressee"
             :rules="addressRules"
             :disabled="isLoading"
             label="BTC Address"
-            hint="This field will be read-only if you select the contact from above dropdown"
+            hint="This field will be read-only if you select a Channel from above dropdown"
             :persistent-hint="true"
             :readonly="selectedContact && typeof selectedContact === 'object' && Object.keys(selectedContact).length > 0"
             requiredpo
           ></v-text-field>
           <v-text-field
             v-model="amountPay"
-            label="Amount to pay"
+            label="Amount to Send"
             :disabled="isLoading"
             :rules="amountRule"
             suffix="BTC (in Satoshi)"
           ></v-text-field>
           <v-text-field
             v-model="amountFee"
-            label="Transaction fee"
+            label="Transaction Fee"
             :disabled="isLoading"
             :rules="amountRule"
             suffix="Satoshi/byte"
@@ -71,10 +71,10 @@
             <div class="fee-hint" v-if="fastestFee">Fastest fee:&nbsp;
               <span class="fee-amount" @click="setFee(fastestFee)">{{ fastestFee }}</span>
             </div>
-            <div class="fee-hint" v-if="halfHourFee">30 min fee:&nbsp;
+            <div class="fee-hint" v-if="halfHourFee">Medium fee:&nbsp;
               <span class="fee-amount" @click="setFee(halfHourFee)">{{ halfHourFee }}</span>
             </div>
-            <div class="fee-hint" v-if="hourFee">1 hour fee:&nbsp;
+            <div class="fee-hint" v-if="hourFee">Slowest fee:&nbsp;
               <span class="fee-amount" @click="setFee(hourFee)">{{ hourFee }}</span>
             </div>
           </div>
@@ -293,6 +293,6 @@ export default {
     }
     .fee-amount {
         cursor: pointer;
-        color: #3949AB;
+        color: #b734d6;
     }
 </style>
