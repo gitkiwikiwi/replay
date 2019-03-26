@@ -1,10 +1,21 @@
 {
   "name": "Replay",
-  "start_url": "https://replay.cryptocracy.io",
-  "description": "A decentralized video sharing app",
-  "icons": [{
-    "src": "https://raw.githubusercontent.com/cryptocracy/images/master/replay.png",
-    "sizes": "400x400",
+  "short_name": "Replay",
+  "start_url": "/index.html",
+  "description": "Decentralized Video Sharing",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/cryptocracy/images/master/replay.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+    "src": "./icons/android-chrome-512x512.png",
+    "sizes": "512x512",
     "type": "image/png"
-  }]
+    }
+  ],
+  "display": "standalone",
+  "background_color": "#c396ea",
+  "theme_color": "#a135f0"
 }

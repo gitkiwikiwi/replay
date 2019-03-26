@@ -1,29 +1,70 @@
+// Font Awesome v5 icons
+import 'font-awesome/css/font-awesome.css'
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import VueMaterial from 'vue-material'
+import Vuetify from 'vuetify'
 import VueClipboard from 'vue-clipboard2'
-import VModal from 'vue-js-modal'
-import ToggleButton from 'vue-js-toggle-button'
-import lodash from 'lodash'
-import 'vue-material/dist/vue-material.css'
-import draggable from 'vuedraggable'
+// Google map vue plugin
+// import * as VueGoogleMaps from 'vue2-google-maps'
+// OpenStreetMaps
+import 'leaflet/dist/leaflet.css'
+import 'shepherd.js/dist/css/shepherd-theme-square.css'
+import App from './App'
+import router from './router'
+// Import layout file to use for all
+import Layout from './layouts/Layout'
+
+/* Import Vendor styles and main style files */
+import './assets/sass/vendors/font-awesome/font-awesome.scss'
+import './assets/sass/vendor-styles.scss'
+import './assets/sass/App.scss'
+
+/* Import Vuetify stylesheets for material deisgn */
+import '../node_modules/vuetify/dist/vuetify.min.css'
+
+/* Import store */
+import store from './store/store'
 
 window.blockstack = require('blockstack')
-window.axios = require('axios')
+
+Vue.config.productionTip = false
 
 Vue.use(VueClipboard)
-Vue.use(draggable)
-Vue.use(VModal)
-Vue.use(VueMaterial)
-Vue.use(lodash)
-Vue.use(ToggleButton)
-Vue.config.productionTip = false
+
+/* Initialize Vuetify for app */
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#a135f0'
+  },
+  iconfont: 'fa'
+})
+// eslint-disable-next-line
+export const eventBus = new Vue();
+// dummy global function for empty @click functions
+window.dummyFunction = function () {}
+Vue.prototype.dummyFunction = window.dummyFunction
+
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: 'AIzaSyDLAOmejqle801yXt-mKafbYH4rwLIK2ts',
+//     libraries: 'places' // This is required if you use the Autocomplete plugin
+//     // OR: libraries: 'places,drawing'
+//     // OR: libraries: 'places,drawing,visualization'
+//     // (as you require)
+//   }
+// })
+
+/** Globally register layout component */
+Vue.component('app-layout', Layout)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>',
-  components: { App }
+  store,
+  // Attach the Vue instance to the window,
+  // so it's available globally.
+  created: () => { window.Vue = this },
+  router,
+  render: h => h(App)
 })
