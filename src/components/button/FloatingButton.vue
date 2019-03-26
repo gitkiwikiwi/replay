@@ -13,7 +13,7 @@
     <v-btn
       slot="activator"
       v-model="fab"
-      color="teal accent-4"
+      color="purple accent-4"
       :to="{ name: 'AddImage', params: { imageProp: null } }"
       dark
       fab
@@ -25,7 +25,7 @@
       fab
       dark
       small
-      color="green lighten-1"
+      color="purple lighten-1"
       :to="{ name: 'AddImage', params: { imageProp: null } }"
     >
       <v-icon>video_call</v-icon>
