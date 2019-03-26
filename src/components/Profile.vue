@@ -22,15 +22,15 @@
                 <div class="display-1">{{userData.profile.name}}</div>
                 <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                   <v-tooltip bottom v-if="!isAdded">
-                    <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="teal accent-4">
-                      <v-icon  color="teal accent-4">person_add</v-icon>
+                    <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="purple accent-4">
+                      <v-icon  color="purple accent-4">person_add</v-icon>
                     </v-btn>
                     <span>Add to Contacts</span>
                   </v-tooltip>
 
                   <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="teal accent-4">
-                      <v-icon  color="teal accent-4">delete</v-icon>
+                    <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="purple accent-4">
+                      <v-icon  color="purple accent-4">delete</v-icon>
                     </v-btn>
                     <span>Remove from Contacts</span>
                   </v-tooltip>
@@ -40,7 +40,7 @@
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-tooltip bottom>
-                        <v-icon slot="activator" color="teal accent-4">chat</v-icon>
+                        <v-icon slot="activator" color="purple accent-4">chat</v-icon>
                         <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
                         <span v-else> {{ userData.username }} </span>
                       </v-tooltip>
@@ -56,7 +56,7 @@
 
                   <v-list-tile>
                     <v-list-tile-action>
-                      <v-icon color="teal accent-4">mail</v-icon>
+                      <v-icon color="purple accent-4">mail</v-icon>
                     </v-list-tile-action>
 
                     <v-list-tile-content>
@@ -88,24 +88,24 @@
               <v-list>
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon color="teal accent-4">fa-qrcode</v-icon>
+                    <v-icon color="purple accent-4">fa-qrcode</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content >
-                    <v-btn dark block color="teal accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show BTC Address</v-btn>
+                    <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show BTC Address</v-btn>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-divider inset dark></v-divider>
 
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon color="teal accent-4">fa-bitcoin</v-icon>
+                    <v-icon color="purple accent-4">fa-bitcoin</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content >
                     <v-btn
                       :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
-                      block color="teal accent-4"
+                      block color="purple accent-4"
                       :dark="hasBTCProof && $route.params.id !== 'my-profile'"
                       class="br20"
                       @click="redirectUser"
@@ -121,12 +121,12 @@
 
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon color="teal accent-4">fa-rocket</v-icon>
+                    <v-icon color="purple accent-4">fa-rocket</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content >
                     <v-btn
-                      dark block color="teal accent-4"
+                      dark block color="purple accent-4"
                       class="br20"
                       @click="eventBus.$emit('payWithAltcoins')"
                     >
@@ -140,7 +140,7 @@
               <v-list two-line>
                 <v-list-tile @click="redirectToResources('OwnedImages')">
                   <v-list-tile-action>
-                    <v-icon color="teal accent-4">photo</v-icon>
+                    <v-icon color="purple accent-4">photo</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content>
@@ -151,7 +151,7 @@
 
                 <!-- <v-list-tile @click="redirectToResources('Owned')">
                   <v-list-tile-action>
-                    <v-icon color="teal accent-4">label</v-icon>
+                    <v-icon color="purple accent-4">label</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content>
@@ -161,7 +161,7 @@
                 </v-list-tile> -->
 
                 <v-list-tile @click="redirectToResources('OwnedMarkers')">
-                  <v-list-tile-action><v-icon color="teal accent-4">place</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="purple accent-4">place</v-icon></v-list-tile-action>
 
                   <v-list-tile-content>
                     <v-list-tile-title >{{resources.markers}}</v-list-tile-title>
@@ -179,12 +179,12 @@
       <v-progress-circular
         :size="70"
         :width="5"
-        color="teal accent-4"
+        color="purple accent-4"
         indeterminate
       ></v-progress-circular>
     </div>
     <div v-else class="mt-5 text-xs-center">
-      <h1>No contacts found</h1>
+      <h1>No Channels found</h1>
     </div>
     <modals></modals>
   </div>
