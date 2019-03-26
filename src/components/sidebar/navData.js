@@ -13,32 +13,32 @@
 
 const items = [
   {
-    color: 'teal lighten-3',
+    color: 'red',
+    action: 'whatshot',
+    title: 'Popular',
+    linkTo: '/quorum',
+    class: 'step9'
+  },
+  {
+    color: 'purple lighten-2',
     action: 'subscriptions',
     title: 'Latest',
     linkTo: '/'
   },
   {
-    color: 'red',
-    action: 'whatshot',
-    title: 'Trending',
-    linkTo: '/quorum',
-    class: 'step9'
-  },
-  {
-    color: 'green lighten-2',
-    action: 'video_library',
-    title: 'My Library',
-    items: [
-      { title: 'Owned', linkTo: '/events/owned' },
-      { title: 'Favorites', linkTo: '/events/favorites' }
-    ]
-  },
-  {
-    color: 'purple lighten-3',
+    color: 'purple lighten-2',
     action: 'ondemand_video',
     title: 'Channels',
     linkTo: '/favourite-contacts'
+  },
+  {
+    color: 'purple lighten-2',
+    action: 'video_library',
+    title: 'My Library',
+    items: [
+      { title: 'My Uploads', linkTo: '/images/owned' },
+      { title: 'My Playlists', linkTo: '/images/favorites' }
+    ]
   },
   {
     color: 'brown lighten-2',

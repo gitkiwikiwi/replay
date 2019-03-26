@@ -35,7 +35,7 @@ export default {
     top: false,
     right: true,
     bottom: true,
-    left: false,
+    left: false
   })
 }
 </script>
