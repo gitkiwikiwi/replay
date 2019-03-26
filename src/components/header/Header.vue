@@ -59,7 +59,7 @@ import Notifications from '../notifications/Notifications'
 import AvatarMenu from './Avatarmenu'
 // import logo from '../../assets/img/logo.svg'
 import { tourMixin } from '@/helpers/tourHelper'
-import logo from '../../assets/img/logo_gradient.png'
+import logo from '../../assets/img/replay.png'
 
 export default {
   components: {
@@ -145,7 +145,7 @@ export default {
 
 <style lang="css" scoped>
 .v-toolbar {
-  background: linear-gradient(to right, #1ebea5 , #32e8a5);
+  background: linear-gradient(to right, #a135f0 , #c396ea);
   box-shadow: 0 6px 25px 0 rgba(38, 50, 56, 0.2);
 }
 .livehelp_position {

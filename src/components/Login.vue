@@ -31,7 +31,7 @@
         <img class="img-icon" src="https://raw.githubusercontent.com/cryptocracy/images/master/replay_heros.png" alt="Replay" height="300" width="300">
         <h1>Replay</h1>
         <h4>Decentralized Video Sharing</h4>
-        <v-btn class="btn-login pl-4 pr-4" style="color : #33886c;" @click="signIn">Sign In With Blockstack</v-btn>
+        <v-btn class="btn-login pl-4 pr-4" style="color : #a135f0;" @click="signIn">Sign In With Blockstack</v-btn>
         <p></p>
         <h6>(Warning: Still in beta and subject to breaking changes)</h6>
       </div>
@@ -77,11 +77,11 @@ export default {
     background: linear-gradient(to right, #a135f0, #c396ea);
   }
   .application a {
-    color : #19695a
+    color : #a135f0
   }
   .btn-login {
     border-radius: 20px;
-    color : #33886c;
+    color : #a135f0;
   }
   .theme--light.application {
     background: linear-gradient(to right, #a135f0, #c396ea);
