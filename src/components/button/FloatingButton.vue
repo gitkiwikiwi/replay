@@ -8,7 +8,6 @@
     :left="left"
     :direction="direction"
     :open-on-hover="hover"
-    :transition="transition"
   >
     <v-btn
       slot="activator"
@@ -17,16 +16,6 @@
       :to="{ name: 'AddImage', params: { imageProp: null } }"
       dark
       fab
-    >
-      <v-icon>video_call</v-icon>
-      <v-icon>close</v-icon>
-    </v-btn>
-    <v-btn
-      fab
-      dark
-      small
-      color="purple lighten-1"
-      :to="{ name: 'AddImage', params: { imageProp: null } }"
     >
       <v-icon>video_call</v-icon>
     </v-btn>
@@ -47,7 +36,6 @@ export default {
     right: true,
     bottom: true,
     left: false,
-    transition: 'slide-x-reverse-transition'
   })
 }
 </script>

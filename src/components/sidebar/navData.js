@@ -14,7 +14,7 @@
 const items = [
   {
     color: 'teal lighten-3',
-    action: 'ondemand_video',
+    action: 'subscriptions',
     title: 'Latest',
     linkTo: '/'
   },
@@ -36,7 +36,7 @@ const items = [
   },
   {
     color: 'purple lighten-3',
-    action: 'recent_actors',
+    action: 'ondemand_video',
     title: 'Channels',
     linkTo: '/favourite-contacts'
   },
