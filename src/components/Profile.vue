@@ -27,18 +27,18 @@
                         <!-- <v-icon slot="activator" color="purple accent-4">ondemand_video</v-icon> -->
 
                         <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-                            <v-tooltip bottom v-if="!isAdded">
-                                <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="purple accent-4">
-                                    <v-icon  color="purple accent-4">add_to_queue</v-icon>
-                                </v-btn>
-                                <span>Subscribe to this Channel</span>
-                            </v-tooltip>
-                            <v-tooltip bottom v-else>
-                                <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="purple accent-4">
-                                    <v-icon  color="purple accent-4">delete</v-icon>
-                                </v-btn>
-                                <span>Unsubscribe from this Channel</span>
-                            </v-tooltip>
+                          <v-tooltip bottom v-if="!isAdded">
+                            <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="purple accent-4">
+                              <v-icon  color="purple accent-4">add_to_queue</v-icon>
+                            </v-btn>
+                            <span>Subscribe to this Channel</span>
+                          </v-tooltip>
+                          <v-tooltip bottom v-else>
+                            <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="purple accent-4">
+                              <v-icon  color="purple accent-4">delete</v-icon>
+                            </v-btn>
+                            <span>Unsubscribe from this Channel</span>
+                          </v-tooltip>
                         </v-list-tile-action>
 
                         <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
