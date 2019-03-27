@@ -53,7 +53,7 @@
                       <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-divider></v-divider>
+                <v-divider inset dark></v-divider>
                   <v-list-tile>
                         <v-list-tile-action>
                           <v-icon color="purple accent-4">fa-qrcode</v-icon>
@@ -102,7 +102,7 @@
                         </v-btn>
                       </v-list-tile-content>
                 </v-list-tile>
-                <v-divider></v-divider>
+                <v-divider inset dark></v-divider>
                 <v-list-tile @click="redirectToResources('OwnedImages')">
                       <v-list-tile-action>
                         <v-icon color="teal accent-4">video_library</v-icon>
