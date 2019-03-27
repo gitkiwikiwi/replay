@@ -3,7 +3,7 @@
     <div v-if="userData.hasOwnProperty('profile')" class="container profile-info">
       <v-container fluid="true">
         <v-layout class="br20" row wrap>
-          <v-flex xs12>
+          <v-flex xs12 sm6 offset-sm3>
             <v-card class="br20">
               <v-img
                 v-if="userData.profile.hasOwnProperty('image')"
@@ -19,7 +19,7 @@
               </v-img>
             </v-card>
           </v-flex>
-          <v-flex xs12>
+          <v-flex xs12 sm6 offset-sm3>
             <v-list>
               <v-card class="br20">
 
@@ -81,7 +81,7 @@
                       </v-btn>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-divider inset dark></v-divider>
+                  <v-divider></v-divider>
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-icon color="blue accent-4">fa-rocket</v-icon>
@@ -96,7 +96,7 @@
                       </v-btn>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-divider inset dark></v-divider>
+                  <v-divider></v-divider>
                 </v-card-title>
               </v-card>
               <v-card class="br20">
@@ -110,7 +110,7 @@
                       <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-divider inset dark></v-divider>
+                  <v-divider></v-divider>
               </v-card>
             </v-list>
           </v-flex>
