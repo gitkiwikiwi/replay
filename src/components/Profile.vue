@@ -20,105 +20,114 @@
             </v-card>
           </v-flex>
           <v-flex xs12>
-          <v-list>
-            <v-card class="br20">
-              <v-card-title>
-                  <v-list-tile>
-                        <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-                            <v-tooltip bottom v-if="!isAdded">
+              <v-list>
+                <v-card class="br20">
+                    <v-card-title>
+                        <v-list-tile>
+                            <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                                <v-tooltip bottom v-if="!isAdded">
                                 <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="purple accent-4">
                                 <v-icon  color="purple accent-4">add_to_queue</v-icon>
                                 </v-btn>
                                 <span>Subscribe to this Channel</span>
-                            </v-tooltip>
+                                </v-tooltip>
 
-                            <v-tooltip bottom v-else>
+                                <v-tooltip bottom v-else>
                                 <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="purple accent-4">
                                 <v-icon  color="purple accent-4">delete</v-icon>
                                 </v-btn>
                                 <span>Unsubscribe from this Channel</span>
-                            </v-tooltip>
-                        </v-list-tile-action>
-                      <v-list-tile-action>
-                      <v-tooltip bottom>
-                        <!-- <v-icon slot="activator" color="purple accent-4">ondemand_video</v-icon> -->
-                        <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
-                        <span v-else> {{ userData.username }} </span>
-                      </v-tooltip>
-                    </v-list-tile-action>
+                                </v-tooltip>
+                            </v-list-tile-action>
+                            <v-list-tile-action>
+                                <v-tooltip bottom>
+                                <!-- <v-icon slot="activator" color="purple accent-4">ondemand_video</v-icon> -->
+                                <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
+                                <span v-else> {{ userData.username }} </span>
+                                </v-tooltip>
+                            </v-list-tile-action>
 
-                    <v-list-tile-content>
-                      <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
-                      <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-                      <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-                    </v-list-tile-content>
-                </v-list-tile>
+                            <v-list-tile-content>
+                                <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
+                                <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
+                                <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                    </v-card-title>
+                </v-card>
+
                 <v-divider inset dark></v-divider>
-                  <v-list-tile>
-                        <v-list-tile-action>
-                          <v-icon color="purple accent-4">fa-qrcode</v-icon>
-                        </v-list-tile-action>
+                <v-card class="br20">
+                    <v-card-title>
+                        <v-list-tile>
+                            <v-list-tile-action>
+                              <v-icon color="purple accent-4">fa-qrcode</v-icon>
+                            </v-list-tile-action>
 
-                      <v-list-tile-content >
-                      <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show Bitcoin Address</v-btn>
-                      </v-list-tile-content>
-                </v-list-tile>
-                <v-divider inset dark></v-divider>
+                            <v-list-tile-content >
+                            <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show Bitcoin Address</v-btn>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                        <v-divider inset dark></v-divider>
 
-                <v-list-tile>
-                      <v-list-tile-action>
-                        <v-icon color="orange accent-4">fa-bitcoin</v-icon>
-                      </v-list-tile-action>
+                        <v-list-tile>
+                            <v-list-tile-action>
+                            <v-icon color="orange accent-4">fa-bitcoin</v-icon>
+                            </v-list-tile-action>
 
-                      <v-list-tile-content >
-                        <v-btn
-                          :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
-                          block color="orange accent-4"
-                          :dark="hasBTCProof && $route.params.id !== 'my-profile'"
-                          class="br20"
-                          @click="redirectUser"
-                        >
-                          Donate with Bitcoin
-                        </v-btn>
-                      </v-list-tile-content>
-                  <!-- <span v-if="$route.params.id === 'my-profile'">You don't want to pay to yourself.</span>
-                  <span v-else-if="!hasBTCProof">This user doesn't have a BTC proff setup with Blockstack.</span>
-                  <span v-else>You can directly pay this user from your wallet.</span> -->
-                </v-list-tile>
-                <v-divider inset dark></v-divider>
+                            <v-list-tile-content >
+                            <v-btn
+                              :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
+                              block color="orange accent-4"
+                              :dark="hasBTCProof && $route.params.id !== 'my-profile'"
+                              class="br20"
+                              @click="redirectUser"
+                            >
+                              Donate with Bitcoin
+                            </v-btn>
+                            </v-list-tile-content>
+                        <!-- <span v-if="$route.params.id === 'my-profile'">You don't want to pay to yourself.</span>
+                        <span v-else-if="!hasBTCProof">This user doesn't have a BTC proff setup with Blockstack.</span>
+                        <span v-else>You can directly pay this user from your wallet.</span> -->
+                        </v-list-tile>
+                        <v-divider inset dark></v-divider>
 
-                <v-list-tile>
-                      <v-list-tile-action>
-                        <v-icon color="blue accent-4">fa-rocket</v-icon>
-                      </v-list-tile-action>
+                        <v-list-tile>
+                            <v-list-tile-action>
+                            <v-icon color="blue accent-4">fa-rocket</v-icon>
+                            </v-list-tile-action>
 
-                      <v-list-tile-content >
-                        <v-btn
-                          dark block color="blue accent-4"
-                          class="br20"
-                          @click="eventBus.$emit('payWithAltcoins')"
-                        >
-                          Donate with Altcoin
-                        </v-btn>
-                      </v-list-tile-content>
-                </v-list-tile>
-                <v-divider></v-divider>
-                <v-list-tile @click="redirectToResources('OwnedImages')">
-                      <v-list-tile-action>
-                        <v-icon color="teal accent-4">video_library</v-icon>
-                      </v-list-tile-action>
+                            <v-list-tile-content >
+                            <v-btn
+                              dark block color="blue accent-4"
+                              class="br20"
+                              @click="eventBus.$emit('payWithAltcoins')"
+                            >
+                              Donate with Altcoin
+                            </v-btn>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                        <v-divider></v-divider>
+                    </v-card-title>
+                </v-card>
+                <v-card class="br20">
+                    <v-card-title>        
+                        <v-list-tile @click="redirectToResources('OwnedImages')">
+                              <v-list-tile-action>
+                                <v-icon color="teal accent-4">video_library</v-icon>
+                              </v-list-tile-action>
 
-                      <v-list-tile-content>
-                        <v-list-tile-title>{{resources.images}}</v-list-tile-title>
-                        <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
-                      </v-list-tile-content>
-                </v-list-tile>
-              <v-divider inset dark></v-divider>
+                              <v-list-tile-content>
+                                <v-list-tile-title>{{resources.images}}</v-list-tile-title>
+                                <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
+                              </v-list-tile-content>
+                        </v-list-tile>
+                  <v-divider inset dark></v-divider>
               </v-list>
             </v-card>
           </v-flex>
         </v-layout>
-      </v-container>
+    </v-container>
     </div>
     <div class="mt-5 text-xs-center" v-else-if="!isResolved">
       <v-progress-circular
