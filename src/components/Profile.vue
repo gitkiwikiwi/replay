@@ -40,7 +40,11 @@
                 </v-list-tile-action>
 
                 <v-list two-line>
-                  <v-list-tile>
+
+                </v-list>
+                <v-divider></v-divider>    
+              <v-list>
+                <v-list-tile>
                     <v-list-tile-action>
                       <v-tooltip bottom>
                         <!-- <v-icon slot="activator" color="purple accent-4">ondemand_video</v-icon> -->
@@ -55,37 +59,34 @@
                       <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
                       <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
                     </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-                <v-divider></v-divider>    
-              <v-list>
+                </v-list-tile>
                 <v-list-tile>
-                  <v-list-tile-action>
-                    <v-icon color="purple accent-4">fa-qrcode</v-icon>
-                  </v-list-tile-action>
+                      <v-list-tile-action>
+                        <v-icon color="purple accent-4">fa-qrcode</v-icon>
+                      </v-list-tile-action>
 
-                  <v-list-tile-content >
-                    <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show BTC Address</v-btn>
-                  </v-list-tile-content>
+                      <v-list-tile-content >
+                        <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show BTC Address</v-btn>
+                      </v-list-tile-content>
                 </v-list-tile>
                 <v-divider inset dark></v-divider>
 
                 <v-list-tile>
-                  <v-list-tile-action>
-                    <v-icon color="orange accent-4">fa-bitcoin</v-icon>
-                  </v-list-tile-action>
+                      <v-list-tile-action>
+                        <v-icon color="orange accent-4">fa-bitcoin</v-icon>
+                      </v-list-tile-action>
 
-                  <v-list-tile-content >
-                    <v-btn
-                      :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
-                      block color="orange accent-4"
-                      :dark="hasBTCProof && $route.params.id !== 'my-profile'"
-                      class="br20"
-                      @click="redirectUser"
-                    >
-                      Donate with Bitcoin
-                    </v-btn>
-                  </v-list-tile-content>
+                      <v-list-tile-content >
+                        <v-btn
+                          :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
+                          block color="orange accent-4"
+                          :dark="hasBTCProof && $route.params.id !== 'my-profile'"
+                          class="br20"
+                          @click="redirectUser"
+                        >
+                          Donate with Bitcoin
+                        </v-btn>
+                      </v-list-tile-content>
                   <!-- <span v-if="$route.params.id === 'my-profile'">You don't want to pay to yourself.</span>
                   <span v-else-if="!hasBTCProof">This user doesn't have a BTC proff setup with Blockstack.</span>
                   <span v-else>You can directly pay this user from your wallet.</span> -->
@@ -93,53 +94,30 @@
                 <v-divider inset dark></v-divider>
 
                 <v-list-tile>
-                  <v-list-tile-action>
-                    <v-icon color="blue accent-4">fa-rocket</v-icon>
-                  </v-list-tile-action>
+                      <v-list-tile-action>
+                        <v-icon color="blue accent-4">fa-rocket</v-icon>
+                      </v-list-tile-action>
 
-                  <v-list-tile-content >
-                    <v-btn
-                      dark block color="blue accent-4"
-                      class="br20"
-                      @click="eventBus.$emit('payWithAltcoins')"
-                    >
-                      Donate with Altcoin
-                    </v-btn>
-                  </v-list-tile-content>
+                      <v-list-tile-content >
+                        <v-btn
+                          dark block color="blue accent-4"
+                          class="br20"
+                          @click="eventBus.$emit('payWithAltcoins')"
+                        >
+                          Donate with Altcoin
+                        </v-btn>
+                      </v-list-tile-content>
                 </v-list-tile>
                 <v-divider></v-divider>
-              </v-list>
-
-              <v-list two-line>
                 <v-list-tile @click="redirectToResources('OwnedImages')">
-                  <v-list-tile-action>
-                    <v-icon color="teal accent-4">video_library</v-icon>
-                  </v-list-tile-action>
+                      <v-list-tile-action>
+                        <v-icon color="teal accent-4">video_library</v-icon>
+                      </v-list-tile-action>
 
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{resources.images}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-
-                <!-- <v-list-tile @click="redirectToResources('Owned')">
-                  <v-list-tile-action>
-                    <v-icon color="purple accent-4">label</v-icon>
-                  </v-list-tile-action>
-
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{resources.tags}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Tags Count</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile> -->
-
-                <v-list-tile @click="redirectToResources('OwnedMarkers')">
-                  <v-list-tile-action><v-icon color="purple accent-4">place</v-icon></v-list-tile-action>
-
-                  <v-list-tile-content>
-                    <v-list-tile-title >{{resources.markers}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Markers Count</v-list-tile-sub-title>
-                  </v-list-tile-content>
+                      <v-list-tile-content>
+                        <v-list-tile-title>{{resources.images}}</v-list-tile-title>
+                        <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
+                      </v-list-tile-content>
                 </v-list-tile>
               </v-list>
             </v-card>
