@@ -33,7 +33,7 @@
         <h4>Decentralized Video Sharing</h4>
         <v-btn class="btn-login pl-4 pr-4" style="color : #a135f0;" @click="signIn">Sign In With Blockstack</v-btn>
         <p></p>
-        <h6>(Warning: Still in beta and subject to breaking changes)</h6>
+        <h6>Give Your Videos Blockchain Super Powers!</h6>
       </div>
     </div>
     <v-footer class="pa-3" >

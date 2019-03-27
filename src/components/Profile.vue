@@ -3,7 +3,7 @@
     <div v-if="userData.hasOwnProperty('profile')" class="container profile-info">
       <v-container fluid="true">
         <v-layout class="br20" row wrap>
-          <v-flex  xs12 sm5>
+          <v-flex xs12>
             <v-card class="br20">
               <v-img
                 v-if="userData.profile.hasOwnProperty('image')"
@@ -19,7 +19,7 @@
               </v-img>
             </v-card>
           </v-flex>
-          <v-flex  xs12 sm7>
+          <v-flex xs12>
           <v-list>
             <v-card class="br20">
               <v-card-title>
