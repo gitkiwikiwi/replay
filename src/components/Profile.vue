@@ -19,31 +19,29 @@
               </v-img>
             </v-card>
           </v-flex>
-
           <v-flex  xs12 sm7>
           <v-list>
-
             <v-card class="br20">
-                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-                  <v-tooltip bottom v-if="!isAdded">
-                    <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">add_to_queue</v-icon>
-                    </v-btn>
-                    <span>Subscribe to this Channel</span>
-                  </v-tooltip>
-
-                  <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">delete</v-icon>
-                    </v-btn>
-                    <span>Unsubscribe from this Channel</span>
-                  </v-tooltip>
-                </v-list-tile-action>
+              <v-card-title>
                   <v-list-tile>
+                        <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                            <v-tooltip bottom v-if="!isAdded">
+                                <v-btn slot="activator" @click.stop="updateContacts(userData, 'addition')" outline fab small color="purple accent-4">
+                                <v-icon  color="purple accent-4">add_to_queue</v-icon>
+                                </v-btn>
+                                <span>Subscribe to this Channel</span>
+                            </v-tooltip>
+
+                            <v-tooltip bottom v-else>
+                                <v-btn slot="activator" @click.stop="updateContacts(userData, 'deletion')" outline fab small color="purple accent-4">
+                                <v-icon  color="purple accent-4">delete</v-icon>
+                                </v-btn>
+                                <span>Unsubscribe from this Channel</span>
+                            </v-tooltip>
+                        </v-list-tile-action>
                       <v-list-tile-action>
                       <v-tooltip bottom>
                         <!-- <v-icon slot="activator" color="purple accent-4">ondemand_video</v-icon> -->
-
                         <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
                         <span v-else> {{ userData.username }} </span>
                       </v-tooltip>
@@ -62,7 +60,7 @@
                         </v-list-tile-action>
 
                       <v-list-tile-content >
-                      <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show BTC Address</v-btn>
+                      <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show Bitcoin Address</v-btn>
                       </v-list-tile-content>
                 </v-list-tile>
                 <v-divider inset dark></v-divider>
@@ -115,6 +113,7 @@
                         <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                       </v-list-tile-content>
                 </v-list-tile>
+              <v-divider inset dark></v-divider>
               </v-list>
             </v-card>
           </v-flex>
