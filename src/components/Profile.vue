@@ -53,7 +53,7 @@
                 </v-list-tile>
 
               </v-card>
-              <v-divider inset dark></v-divider>
+
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile>
@@ -96,9 +96,9 @@
                       </v-btn>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-divider></v-divider>
                 </v-card-title>
               </v-card>
+
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile @click="redirectToResources('OwnedImages')">
@@ -110,7 +110,7 @@
                       <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-divider></v-divider>
+
               </v-card>
             </v-list>
           </v-flex>
