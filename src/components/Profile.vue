@@ -18,6 +18,9 @@
                 gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
               </v-img>
 
+          </v-flex>
+
+          <v-flex  xs12 sm7>
               <v-card-title>
                 <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                   <v-tooltip bottom v-if="!isAdded">
@@ -53,11 +56,10 @@
                     </v-list-tile-content>
                   </v-list-tile>
                 </v-list>
+                <v-divider></v-divider>
               </v-card-title>
             </v-card>
-          </v-flex>
 
-          <v-flex  xs12 sm7>
             <v-card class="br20">
               <v-list>
                 <v-list-tile>
@@ -73,7 +75,7 @@
 
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon color="black accent-4">fa-bitcoin</v-icon>
+                    <v-icon color="orange accent-4">fa-bitcoin</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content >
