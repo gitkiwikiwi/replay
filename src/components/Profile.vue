@@ -17,10 +17,11 @@
                 src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
                 gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
               </v-img>
-
+             </v-card>
           </v-flex>
 
           <v-flex  xs12 sm7>
+            <v-card class="br20">
               <v-card-title>
                 <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                   <v-tooltip bottom v-if="!isAdded">
@@ -56,11 +57,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
                 </v-list>
-                <v-divider></v-divider>
-              </v-card-title>
-            </v-card>
-
-            <v-card class="br20">
+                <v-divider></v-divider>    
               <v-list>
                 <v-list-tile>
                   <v-list-tile-action>
