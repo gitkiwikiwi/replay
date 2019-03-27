@@ -102,7 +102,7 @@
                         </v-btn>
                       </v-list-tile-content>
                 </v-list-tile>
-                <v-divider inset dark></v-divider>
+                <v-divider></v-divider>
                 <v-list-tile @click="redirectToResources('OwnedImages')">
                       <v-list-tile-action>
                         <v-icon color="teal accent-4">video_library</v-icon>
