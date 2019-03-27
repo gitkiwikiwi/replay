@@ -73,18 +73,18 @@
 
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon color="purple accent-4">fa-bitcoin</v-icon>
+                    <v-icon color="black accent-4">fa-bitcoin</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content >
                     <v-btn
                       :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
-                      block color="purple accent-4"
+                      block color="orange accent-4"
                       :dark="hasBTCProof && $route.params.id !== 'my-profile'"
                       class="br20"
                       @click="redirectUser"
                     >
-                      Pay with BTC
+                      Donate with Bitcoin
                     </v-btn>
                   </v-list-tile-content>
                   <!-- <span v-if="$route.params.id === 'my-profile'">You don't want to pay to yourself.</span>
@@ -95,16 +95,16 @@
 
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon color="purple accent-4">fa-rocket</v-icon>
+                    <v-icon color="blue accent-4">fa-rocket</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content >
                     <v-btn
-                      dark block color="purple accent-4"
+                      dark block color="blue accent-4"
                       class="br20"
                       @click="eventBus.$emit('payWithAltcoins')"
                     >
-                      Pay with altcoin
+                      Donate with Altcoin
                     </v-btn>
                   </v-list-tile-content>
                 </v-list-tile>
@@ -114,12 +114,12 @@
               <v-list two-line>
                 <v-list-tile @click="redirectToResources('OwnedImages')">
                   <v-list-tile-action>
-                    <v-icon color="purple accent-4">photo</v-icon>
+                    <v-icon color="teal accent-4">video_library</v-icon>
                   </v-list-tile-action>
 
                   <v-list-tile-content>
                     <v-list-tile-title>{{resources.images}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Images Count</v-list-tile-sub-title>
+                    <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
 
