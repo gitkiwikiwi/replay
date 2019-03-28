@@ -10,11 +10,13 @@
                   v-if="userData.profile.hasOwnProperty('image')"
                   :src="userData.profile.image[0].contentUrl"
                   height="150px"
+                  width="150px"
                 >
                 </v-img>
                 <v-img
                   v-else
                   height="150px"
+                  width="150px"
                   src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
                   gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                 </v-img>
