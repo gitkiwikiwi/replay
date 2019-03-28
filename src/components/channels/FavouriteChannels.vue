@@ -64,7 +64,7 @@ import { mapGetters } from 'vuex'
 import channelService from '@/services/channels'
 
 export default {
-  name: 'favourite-channels',
+  name: 'subscribed-channels',
   computed: {
     ...mapGetters({
       channels: 'getChannels'
