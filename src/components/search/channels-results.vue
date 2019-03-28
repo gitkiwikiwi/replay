@@ -15,9 +15,9 @@
               <v-list-tile
                 :key="item.index"
                 avatar
-                @click="showContactProfile(item)">
+                @click="showChannelProfile(item)">
 
-                <!-- <v-btn outline fab small color="teal accent-4"><v-icon  large @click="addToContacts(item)" color="teal accent-4">checked</v-icon></v-btn> -->
+                <!-- <v-btn outline fab small color="teal accent-4"><v-icon  large @click="addToChannels(item)" color="teal accent-4">checked</v-icon></v-btn> -->
                 <v-list-tile-avatar class="ml-2">
                   <img v-if="item.profile.hasOwnProperty('image')" :src="item.profile.image[0].contentUrl">
                   <v-icon v-else large color="purple accent-4">person</v-icon>
@@ -30,15 +30,15 @@
                 </v-list-tile-content>
 
                 <v-list-tile-action>
-                  <v-tooltip bottom v-if="!addedContacts.hasOwnProperty(item.fullyQualifiedName)">
-                    <v-btn slot="activator" @click.stop="updateContacts(item, 'addition')" outline fab small color="purple accent-4">
+                  <v-tooltip bottom v-if="!addedChannels.hasOwnProperty(item.fullyQualifiedName)">
+                    <v-btn slot="activator" @click.stop="updateChannels(item, 'addition')" outline fab small color="purple accent-4">
                       <v-icon  color="purple accent-4">add_to_queue</v-icon>
                     </v-btn>
                     <span>Subscribe to this Channel</span>
                   </v-tooltip>
 
                   <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateContacts(item, 'deletion')" outline fab small color="purple accent-4">
+                    <v-btn slot="activator" @click.stop="updateChannels(item, 'deletion')" outline fab small color="purple accent-4">
                       <v-icon  color="purple accent-4">delete</v-icon>
                     </v-btn>
                     <span>Unsubscribe from this Channel</span>
