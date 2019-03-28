@@ -5,17 +5,19 @@
         <v-layout class="br20" row wrap>
           <v-flex xs12 sm6 offset-sm3>
             <v-card class="">
-              <v-avatar
-                v-if="userData.profile.hasOwnProperty('image')"
-                :src="userData.profile.image[0].contentUrl"
-                height="150px"
-              >
-              </v-avatar>
-              <v-avatar
-                v-else
-                height="150px"
-                src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
-                gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+              <v-avatar>
+                <v-img
+                  v-if="userData.profile.hasOwnProperty('image')"
+                  :src="userData.profile.image[0].contentUrl"
+                  height="150px"
+                >
+                </v-img>
+                <v-img
+                  v-else
+                  height="150px"
+                  src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
+                  gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                </v-img>
               </v-avatar>
             </v-card>
           </v-flex>
