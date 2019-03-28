@@ -29,7 +29,7 @@ const items = [
     color: 'purple lighten-2',
     action: 'ondemand_video',
     title: 'Channels',
-    linkTo: '/favourite-channels'
+    linkTo: '/subscribed-channels'
   },
   {
     color: 'teal lighten-1',

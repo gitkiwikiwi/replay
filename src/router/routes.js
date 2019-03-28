@@ -48,7 +48,7 @@ import Quorum from '@/components/quorum/Quorum'
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/profile/:id', name: 'Profile', component: Profile },
-  { path: '/favourite-channels', name: 'favourite-channels', component: favChannels },
+  { path: '/subscribed-channels', name: 'subscribed-channels', component: favChannels },
   { path: '/settings', name: 'Settings', component: Settings },
 
   // { path: '/tags/add-tag', name: 'AddTag', props: true, component: TagForm },
