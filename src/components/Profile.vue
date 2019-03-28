@@ -136,7 +136,7 @@ import { eventBus } from '@/main'
 import { mapGetters } from 'vuex'
 import qrEncode from 'qr-encode'
 import modals from '@/components/modals/profile-modals'
-import contactService from '@/services/contacts'
+import channelService from '@/services/channels'
 import axios from 'axios'
 // import { marker } from 'leaflet';
 
@@ -158,7 +158,7 @@ export default {
   computed: {
     ...mapGetters({
       profileData: 'getProfileData',
-      contacts: 'getContacts',
+      channels: 'getChannels',
       searchedUserProfileData: 'getUserProfileData',
       isResolved: 'isResolved',
       isRedirected: 'isRedirected'
@@ -172,8 +172,8 @@ export default {
     },
     // computed property for showing addition/deletion button
     isAdded () {
-      if (this.contacts.length > 0) {
-        return this.contacts.find((item) => {
+      if (this.channels.length > 0) {
+        return this.channels.find((item) => {
           return item.fullyQualifiedName === this.searchedUserProfileData.fullyQualifiedName
         })
       } else return false
@@ -221,10 +221,10 @@ export default {
     hubUrl () {
     }
   },
-  mixins: [contactService],
+  mixins: [channelService],
   created () {
-    // method from contactService mixin
-    this.getContacts()
+    // method from channelService mixin
+    this.getChannels()
     // searching for user profile via params in current route when its not user own profile
     // isRedirected added to stop searching for profiles when user is being redirected from another page by clicking on the user link
     if (this.$route.params.id !== 'my-profile' && !this.isRedirected) {
@@ -232,7 +232,7 @@ export default {
         endpoint: 'search',
         query: this.$route.params.id,
         isAbsolute: this.$route.params.id.split('.').length > 1,
-        type: 'contacts'
+        type: 'channels'
       }
       this.$store.commit('MUTATION_SET_SEARCH_RESULT', [])
       this.$store.commit('MUTATION_SET_USER', {})

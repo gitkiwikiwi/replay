@@ -8,7 +8,7 @@ const searchHandler = {
     isRedirected: false,
     isResolved: true,
     userProfileData: {},
-    searchType: 'contacts'
+    searchType: 'channels'
   },
   mutations: {
     MUTATION_SET_SEARCH_RESULT (state, payload) {
@@ -51,7 +51,7 @@ const searchHandler = {
         data: []
       }
       context.commit('MUTATION_SET_RESOLVED_STATE', false)
-      if (searchObj.type === 'contacts') {
+      if (searchObj.type === 'channels') {
         searchResult.data = await searchService.search(searchObj)
         // setting search state true when user comes on profile page directly via URL
         // and the Id he entered in URL giving multiple results

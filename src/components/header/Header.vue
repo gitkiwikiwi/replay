@@ -73,10 +73,10 @@ export default {
     logo,
     // for dropdown on the rigth hand side of search bar
     selectItems: [
-      { text: 'Channels', value: 'contacts' },
+      { text: 'Channels', value: 'channels' },
       { text: 'Tags', value: 'tags' }
     ],
-    searchType: 'contacts',
+    searchType: 'channels',
     searchText: ''
   }),
   created () {
@@ -108,11 +108,11 @@ export default {
         this.$store.commit('MUTATION_SET_SEARCH_RESULT', [])
       } else {
         // searching for results
-        if (this.searchType === 'contacts') {
+        if (this.searchType === 'channels') {
           searchObj = {
             endpoint: 'search',
             query: searchText,
-            type: 'contacts'
+            type: 'channels'
           }
         } else if (this.searchType === 'tags') {
           searchObj = {

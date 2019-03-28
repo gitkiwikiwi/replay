@@ -66,46 +66,46 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import contactService from '@/services/contacts'
+import channelService from '@/services/channels'
 
 export default {
-  name: 'contacts-results',
+  name: 'channels-results',
   computed: {
     ...mapGetters({
       isSearching: 'isSearching',
       isResolved: 'isResolved',
       searchResult: 'getSearchResult',
-      contacts: 'getContacts'
+      channels: 'getChannels'
     }),
-    // computed property for showing addition/deletion button on contacts
-    addedContacts () {
+    // computed property for showing addition/deletion button on channels
+    addedChannels () {
       // creating an object with fullyQualifiedName as key/value to check,
-      // wheteher a contact is already is in the contact list or not with O(1) as time complexity(just like to brag)
-      const addedContacts = {}
-      if (this.contacts.length > 0) {
-        this.contacts.forEach((item) => {
-          this.$set(addedContacts, item.fullyQualifiedName, item.fullyQualifiedName)
+      // wheteher a channel is already is in the channel list or not with O(1) as time complexity(just like to brag)
+      const addedChannels = {}
+      if (this.channels.length > 0) {
+        this.channels.forEach((item) => {
+          this.$set(addedChannels, item.fullyQualifiedName, item.fullyQualifiedName)
         })
       }
-      return addedContacts
+      return addedChannels
     }
   },
-  mixins: [contactService],
+  mixins: [channelService],
   methods: {
-    showContactProfile (contact) {
+    showChannelProfile (channel) {
       // setting user data for quick view of profile (now user does'nt have to wait for API response for searching user profile)
-      this.$store.commit('MUTATION_SET_USER', contact)
+      this.$store.commit('MUTATION_SET_USER', channel)
       this.$store.commit('MUTATION_SET_REDIRECTION_STATE', true)
       this.$store.commit('MUTATION_SET_SEARCH_STATE', false)
       this.$store.commit('MUTATION_SET_SEARCH_RESULT', [])
       // taking user to profile page with user id as params
-      this.$router.push({ name: 'Profile', params: { id: contact.fullyQualifiedName } })
+      this.$router.push({ name: 'Profile', params: { id: channel.fullyQualifiedName } })
     }
   },
   mounted () {
-    // method from contactService mixin
-    // updateContacts in HTML above is also from same mixin
-    this.getContacts()
+    // method from channelService mixin
+    // updateChannels in HTML above is also from same mixin
+    this.getChannels()
   }
 }
 </script>

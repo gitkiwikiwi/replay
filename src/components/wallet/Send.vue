@@ -8,8 +8,8 @@
         <div class="wallet-title">Send to:</div>
         <v-form ref="form" lazy-validation>
           <v-combobox
-            v-model="selectedContact"
-            :items="filteredContactList"
+            v-model="selectedChannel"
+            :items="filteredChannelList"
             item-text="fullyQualifiedName"
             item-value="btcAddress"
             :disabled="isLoading"
@@ -18,7 +18,7 @@
             hint="Showing Subscribed Channels that have a BTC address associated with them."
             :persistent-hint="true"
           >
-            <template v-if="selectedContact && typeof selectedContact === 'object' && Object.keys(selectedContact).length > 0" slot="selection" slot-scope="data">
+            <template v-if="selectedChannel && typeof selectedChannel === 'object' && Object.keys(selectedChannel).length > 0" slot="selection" slot-scope="data">
               <v-chip
                 color="#a135f0"
                 text-color="white"
@@ -26,7 +26,7 @@
                 :disabled="data.disabled"
                 :key="JSON.stringify(data.item)"
                 :close="true"
-                @input="selectedContact = {}"
+                @input="selectedChannel = {}"
               >
                 <!-- Image will be shown in the chip, if there is not an image then the first character avatar of the user will be shown. -->
                 <v-avatar v-if="data.item.hasOwnProperty('profile') && data.item.profile.hasOwnProperty('image')">
@@ -49,7 +49,7 @@
             label="BTC Address"
             hint="This field will be read-only if you select a Channel from above dropdown"
             :persistent-hint="true"
-            :readonly="selectedContact && typeof selectedContact === 'object' && Object.keys(selectedContact).length > 0"
+            :readonly="selectedChannel && typeof selectedChannel === 'object' && Object.keys(selectedChannel).length > 0"
             requiredpo
           ></v-text-field>
           <v-text-field
@@ -100,7 +100,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import contactService from '@/services/contacts'
+import channelService from '@/services/channels'
 const bitcoin = require('bitcoinjs-lib')
 const CoinKey = require('coinkey')
 const axios = require('axios')
@@ -110,8 +110,8 @@ const apiUrl = `https://blockchain.info/rawaddr/`
 export default {
   name: 'Send',
   data: () => ({
-    filteredContactList: [],
-    selectedContact: {},
+    filteredChannelList: [],
+    selectedChannel: {},
     addressPublic: '',
     addressee: null,
     amountPay: null,
@@ -130,11 +130,11 @@ export default {
       v => v ? /^((?!_)[0-9.])+$/.test(v) || 'Numbers are only allowed' : true
     ]
   }),
-  mixins: [contactService],
+  mixins: [channelService],
   computed: {
     ...mapGetters({
       stateIsLoading: 'isLoading',
-      contactList: 'getContacts'
+      channelList: 'getChannels'
     }),
     valid () {
       return this.addressee && this.amountPay && this.amountFee
@@ -142,13 +142,13 @@ export default {
   },
   watch: {
     deep: true,
-    contactList () {
-      if (this.contactList.length > 0) {
-        this.getFilteredContactList(this.contactList)
+    channelList () {
+      if (this.channelList.length > 0) {
+        this.getFilteredChannelList(this.channelList)
       }
     },
-    selectedContact () {
-      if (this.selectedContact && typeof this.selectedContact === 'object' && Object.keys(this.selectedContact).length > 0) {
+    selectedChannel () {
+      if (this.selectedChannel && typeof this.selectedChannel === 'object' && Object.keys(this.selectedChannel).length > 0) {
         this.getUserDetails()
       } else {
         this.addressee = null
@@ -156,46 +156,46 @@ export default {
     }
   },
   methods: {
-    // method to filter contact on the basis of if there is any btc address found in their account.
-    getFilteredContactList (contactList) {
-      this.filteredContactList = []
-      contactList.forEach(contact => {
-        this.filterByService({ contact, createList: true })
+    // method to filter channel on the basis of if there is any btc address found in their account.
+    getFilteredChannelList (channelList) {
+      this.filteredChannelList = []
+      channelList.forEach(channel => {
+        this.filterByService({ channel, createList: true })
       })
     },
-    // filtering contacts if they have bitcoin service associated
+    // filtering channels if they have bitcoin service associated
     filterByService (args) {
-      let { contact, createList } = args
-      if (contact.hasOwnProperty('profile') && Array.isArray(contact.profile.account)) {
-        contact.profile.account.find(account => {
+      let { channel, createList } = args
+      if (channel.hasOwnProperty('profile') && Array.isArray(channel.profile.account)) {
+        channel.profile.account.find(account => {
           if (account.service.toLowerCase() === 'bitcoin') {
-            // filling conatct list array if createList is true
-            createList && this.fillContactList(contact, account)
+            // filling channel list array if createList is true
+            createList && this.fillChannelList(channel, account)
             !createList && (this.addressee = account.identifier)
           }
         })
       }
     },
-    fillContactList (contact, account) {
-      let modifiedContactObject = Object.assign({}, contact)
-      this.$set(modifiedContactObject, 'addressee', account.identifier)
-      this.filteredContactList.push(modifiedContactObject)
+    fillChannelList (channel, account) {
+      let modifiedChannelObject = Object.assign({}, channel)
+      this.$set(modifiedChannelObject, 'addressee', account.identifier)
+      this.filteredChannelList.push(modifiedChannelObject)
     },
     async getUserDetails () {
       this.$store.commit('toggleLoading')
-      let query = this.selectedContact.fullyQualifiedName || this.selectedContact.username
+      let query = this.selectedChannel.fullyQualifiedName || this.selectedChannel.username
       let user = await this.$store.dispatch('ACTION_GET_USER', {
         query,
         endpoint: `https://core.blockstack.org/v1/users/${query}`
       })
       this.$store.commit('toggleLoading')
-      this.filterByService({ contact: user, createList: false })
+      this.filterByService({ channel: user, createList: false })
     },
     setFee (amount) {
       this.amountFee = amount
     },
     clear () {
-      this.selectedContact = {}
+      this.selectedChannel = {}
       this.addressee = null
       this.amountPay = null
       this.amountFee = null
@@ -235,12 +235,12 @@ export default {
   },
   mounted () {
     if (Object.keys(this.$store.state.pay_to).length > 0) {
-      this.selectedContact = this.$store.state.pay_to
+      this.selectedChannel = this.$store.state.pay_to
     }
     if (this.$store.state.BTCAddress) {
       this.addressee = this.$store.state.BTCAddress
     }
-    this.getFilteredContactList(this.contactList)
+    this.getFilteredChannelList(this.channelList)
     this.$store.commit('toggleLoading')
     this.addressPublic = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
     //  get info about wallet address
@@ -258,8 +258,8 @@ export default {
       })
   },
   created () {
-    // method from contactService mixin
-    this.getContacts()
+    // method from channelService mixin
+    this.getChannels()
   },
   destroyed () {
     this.$store.state.BTCAddress = null

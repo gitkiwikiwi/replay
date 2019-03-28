@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <contacts v-if="searchType === 'contacts'"></contacts>
+      <channels v-if="searchType === 'channels'"></channels>
       <tags v-if="searchType === 'tags'"></tags>
     </div>
   </div>
@@ -9,13 +9,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import contactsResults from './contacts-results'
+import channelsResults from './channels-results'
 import tagsResults from './tags-results'
 
 export default {
   name: 'search-results',
   components: {
-    'contacts': contactsResults,
+    'channels': channelsResults,
     'tags': tagsResults
   },
   computed: {

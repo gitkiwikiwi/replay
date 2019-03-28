@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import notifications from './moduels/notifications'
 import teams from './moduels/teams'
 import searchHandler from './moduels/search-handler'
-import contactsHandler from './moduels/contacts-handler'
+import channelsHandler from './moduels/channels-handler'
 import userProfileData from './moduels/profileData'
 import transactionsHandler from '@/store/moduels/transactions-handler'
 import cryptocracyHandler from '@/store/moduels/cryptocracy-handler'
@@ -32,7 +32,7 @@ export default new Vuex.Store({
   modules: {
     userProfileData,
     searchHandler,
-    contactsHandler,
+    channelsHandler,
     transactionsHandler,
     cryptocracyHandler
   },

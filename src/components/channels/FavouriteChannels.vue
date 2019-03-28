@@ -1,20 +1,20 @@
 <template>
   <div class="container">
     <div>
-      <v-layout v-if="contacts.length > 0" row>
+      <v-layout v-if="channels.length > 0" row>
         <v-flex xs12 sm8 offset-sm2>
           <v-card class="br20">
             <!--            <v-toolbar color="teal accent-4" dark>
-              <v-toolbar-side-icon><v-icon>contacts</v-icon></v-toolbar-side-icon>
+              <v-toolbar-side-icon><v-icon>channels</v-icon></v-toolbar-side-icon>
 
-              <v-toolbar-title>My Contacts</v-toolbar-title>
+              <v-toolbar-title>My Channels</v-toolbar-title>
 
               <v-spacer></v-spacer>
 
             </v-toolbar>-->
-            <!-- <v-subheader>My Contacts</v-subheader> -->
+            <!-- <v-subheader>My Channels</v-subheader> -->
             <v-list two-line>
-              <template v-for="(item, index) in contacts">
+              <template v-for="(item, index) in channels">
                 <v-divider
                   v-if="index !== 0"
                   :inset="true"
@@ -61,28 +61,28 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import contactService from '@/services/contacts'
+import channelService from '@/services/channels'
 
 export default {
-  name: 'favourite-contacts',
+  name: 'favourite-channels',
   computed: {
     ...mapGetters({
-      contacts: 'getContacts'
+      channels: 'getChannels'
     })
   },
-  mixins: [contactService],
+  mixins: [channelService],
   methods: {
-    showContactProfile (contact) {
-      this.$store.commit('MUTATION_SET_USER', contact)
+    showChannelProfile (channel) {
+      this.$store.commit('MUTATION_SET_USER', channel)
       this.$store.commit('MUTATION_SET_REDIRECTION_STATE', true)
       this.$store.commit('MUTATION_SET_SEARCH_STATE', false)
       this.$store.commit('MUTATION_SET_SEARCH_RESULT', [])
-      this.$router.push({ name: 'Profile', params: { id: contact.fullyQualifiedName } })
+      this.$router.push({ name: 'Profile', params: { id: channel.fullyQualifiedName } })
     }
   },
   mounted () {
-    // method from contactService mixin
-    this.getContacts()
+    // method from channelService mixin
+    this.getChannels()
   }
 }
 </script>

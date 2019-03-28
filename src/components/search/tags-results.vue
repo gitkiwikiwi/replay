@@ -62,7 +62,7 @@ export default {
       isSearching: 'isSearching',
       isResolved: 'isResolved',
       searchResult: 'getSearchResult',
-      contacts: 'getContacts'
+      channels: 'getChannels'
     })
   },
   methods: {

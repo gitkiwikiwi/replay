@@ -1,15 +1,15 @@
 const filterService = {
   methods: {
-    // mixin methods for updating my_contacts.json file
+    // mixin methods for updating my_channels.json file
     getHubUrl (profileData) {
       if (profileData && profileData.hasOwnProperty('profile') && typeof profileData.profile.apps === 'object') {
         return profileData.profile.apps['https://dapp_cryptocracy_io']
       } else return null
     },
-    // // mixin methods for fetching my_contacts.json file
-    // getContacts () {
-    //   this.$store.dispatch('ACTION_GET_CONTACTS', {
-    //     fileName: 'my_contacts.json',
+    // // mixin methods for fetching my_channels.json file
+    // getChannels () {
+    //   this.$store.dispatch('ACTION_GET_CHANNELS', {
+    //     fileName: 'my_channels.json',
     //     options: { decrypt: true }
     //   })
     // }

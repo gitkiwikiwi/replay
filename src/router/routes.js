@@ -1,7 +1,7 @@
 import Home from '@/components/home/HomeIndex'
 
 import Profile from '@/components/Profile'
-import favContacts from '@/components/contacts/FavouriteContacts'
+import favChannels from '@/components/channels/FavouriteChannels'
 
 // import TagForm from '@/components/tags/TagForm'
 // import MyTagList from '@/components/tags/MyTagList'
@@ -48,7 +48,7 @@ import Quorum from '@/components/quorum/Quorum'
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/profile/:id', name: 'Profile', component: Profile },
-  { path: '/favourite-contacts', name: 'favourite-contacts', component: favContacts },
+  { path: '/favourite-channels', name: 'favourite-channels', component: favChannels },
   { path: '/settings', name: 'Settings', component: Settings },
 
   // { path: '/tags/add-tag', name: 'AddTag', props: true, component: TagForm },
