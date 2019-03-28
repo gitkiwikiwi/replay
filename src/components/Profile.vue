@@ -23,7 +23,7 @@
                 </v-img>
               </v-avatar>
               <v-list-tile>
-                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="float-right">
                   <v-tooltip bottom v-if="!isAdded">
                     <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
                       <v-icon  color="purple accent-4">add_to_queue</v-icon>
@@ -108,7 +108,6 @@
                       <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
-
               </v-card>
             </v-list>
           </v-flex>
