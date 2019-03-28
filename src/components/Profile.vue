@@ -5,6 +5,7 @@
         <v-layout class="br20" row wrap>
           <v-flex xs12 sm6 offset-sm3>
             <v-card class="">
+              <v-card-title></v-card-title>
               <v-avatar>
                 <v-img
                   v-if="userData.profile.hasOwnProperty('image')"
@@ -21,43 +22,38 @@
                   gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                 </v-img>
               </v-avatar>
+              <v-list-tile>
+                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                  <v-tooltip bottom v-if="!isAdded">
+                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
+                      <v-icon  color="purple accent-4">add_to_queue</v-icon>
+                    </v-btn>
+                    <span>Subscribe to this Channel</span>
+                  </v-tooltip>
+
+                  <v-tooltip bottom v-else>
+                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
+                      <v-icon  color="purple accent-4">delete</v-icon>
+                    </v-btn>
+                    <span>Unsubscribe from this Channel</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+                <v-list-tile-action>
+                  <v-tooltip bottom>
+                    <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
+                    <span v-else> {{ userData.username }} </span>
+                  </v-tooltip>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
+                  <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
+                  <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
+                </v-list-tile-content>
+              </v-list-tile>
             </v-card>
           </v-flex>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
-              <v-card class="br20">
-
-                <v-list-tile>
-                  <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-                    <v-tooltip bottom v-if="!isAdded">
-                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
-                        <v-icon  color="purple accent-4">add_to_queue</v-icon>
-                      </v-btn>
-                      <span>Subscribe to this Channel</span>
-                    </v-tooltip>
-
-                    <v-tooltip bottom v-else>
-                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
-                        <v-icon  color="purple accent-4">delete</v-icon>
-                      </v-btn>
-                      <span>Unsubscribe from this Channel</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-action>
-                    <v-tooltip bottom>
-                      <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
-                      <span v-else> {{ userData.username }} </span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-content>
-                    <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
-                    <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-
-              </v-card>
-
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile>
