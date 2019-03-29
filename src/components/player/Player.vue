@@ -4,6 +4,7 @@
 
 <script>
 module.export = {
+  name: 'Player',
   data: function () {
     return {
       videopath: 'Hello'
