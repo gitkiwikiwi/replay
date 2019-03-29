@@ -109,7 +109,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
-              <player></player>
+              <Player></Player>
           </v-flex>
         </v-layout>
       </v-container>

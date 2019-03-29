@@ -1,13 +1,14 @@
 <template>
-  <div id="player"> {{ videoUrl }} World! </div>
+  <p>Player Component: {{ status }}</p>
 </template>
 
 <script>
-module.export = {
-  name: 'Player',
-  data: () => ({
-    videoUrl: 'Hello'
-  })
+export default {
+  data: function () {
+    return {
+      status: 'Visible'
+    }
+  }
 }
 </script>
 
