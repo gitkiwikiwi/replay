@@ -54,7 +54,7 @@
           </v-flex>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
-              <v-card class="br20" width="150%"></v-card>
+              <v-card class="br20" width="150%"><v-card-title><v-list-tile><v-list-tile-action>HEADER GOES HERE</v-list-tile-action></v-list-tile></v-card-title></v-card>
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile>
@@ -109,6 +109,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
+              <v-card class="br20" width="150%"><v-card-title><v-list-tile><v-list-tile-action>PLAYER GOES HERE</v-list-tile-action></v-list-tile></v-card-title></v-card>
             </v-list>
           </v-flex>
         </v-layout>
