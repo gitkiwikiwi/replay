@@ -140,7 +140,7 @@ import qrEncode from 'qr-encode'
 import modals from '@/components/modals/profile-modals'
 import channelService from '@/services/channels'
 import axios from 'axios'
-import Player from './Player'
+import Player from '@/components/Player'
 // import { marker } from 'leaflet';
 
 export default {
