@@ -37,7 +37,7 @@ const items = [
     title: 'My Library',
     items: [
       { title: 'My Uploads', linkTo: '/images/owned' },
-      { title: 'My Playlists', linkTo: '/images/favorites' }
+      { title: 'My Likes', linkTo: '/images/favorites' }
     ]
   },
   {
