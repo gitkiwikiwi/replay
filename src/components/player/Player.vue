@@ -1,5 +1,5 @@
 <template>
-  <p> {{ videoUrl }} World! </p>
+  <div id="player"> {{ videoUrl }} World! </div>
 </template>
 
 <script>
