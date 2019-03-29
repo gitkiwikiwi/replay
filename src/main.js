@@ -26,9 +26,6 @@ import '../node_modules/vuetify/dist/vuetify.min.css'
 /* Import store */
 import store from './store/store'
 
-/* Import player */
-import Player from './player'
-
 window.blockstack = require('blockstack')
 
 Vue.config.productionTip = false
@@ -59,7 +56,7 @@ Vue.prototype.dummyFunction = window.dummyFunction
 // })
 
 /** Globally register layout component */
-Vue.component('app-layout', Layout, Player)
+Vue.component('app-layout', Layout)
 
 /* eslint-disable no-new */
 new Vue({

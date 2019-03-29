@@ -109,7 +109,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
-              <Player></Player>
+            </v-list>
           </v-flex>
         </v-layout>
       </v-container>
@@ -137,7 +137,6 @@ import qrEncode from 'qr-encode'
 import modals from '@/components/modals/profile-modals'
 import channelService from '@/services/channels'
 import axios from 'axios'
-import Player from './player'
 // import { marker } from 'leaflet';
 
 export default {
@@ -153,8 +152,7 @@ export default {
     eventBus: eventBus
   }),
   components: {
-    modals,
-    Player
+    modals
   },
   computed: {
     ...mapGetters({
