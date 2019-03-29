@@ -4,12 +4,10 @@
 
 <script>
 module.export = {
-  name: 'player',
-  data: function () {
-    return {
-      videopath: 'Hello'
-    }
-  }
+  name: 'Player',
+  data: () => ({
+    videopath: 'Hello'
+  })
 }
 </script>
 
