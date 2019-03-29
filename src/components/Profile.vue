@@ -54,6 +54,7 @@
           </v-flex>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
+              <v-card class="br20" width="150%"></v-card>
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile>
@@ -96,7 +97,6 @@
                   </v-list-tile>
                 </v-card-title>
               </v-card>
-
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile @click="redirectToResources('OwnedImages')">
@@ -294,7 +294,8 @@ export default {
   }
 }
 .br20 {
-  border-radius: 20px
+  border-radius: 20px,
+  
 }
 .qr-code {
   margin: 1% 0% 3% 0%
