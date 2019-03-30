@@ -110,7 +110,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
-              <v-card class="videoplayer" width="100%" height="245"><v-card-title><v-list-tile><v-list-tile-action><video width="400"><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-list-tile></v-card-title></v-card>
+              <v-card class="videoplayer" width="100%" height="265"><v-card-title><v-list-tile></v-list-tile><v-list-tile-action><video width="400" controls><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-card-title></v-card>
             </v-list>
           </v-flex>
         </v-layout>
