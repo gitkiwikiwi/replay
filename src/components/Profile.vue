@@ -4,57 +4,58 @@
       <v-container fluid="true">
         <v-layout class="br20" row wrap>
           <v-flex xs12 sm6 offset-sm3>
-            <v-card class="">
-              <v-card-title></v-card-title>
-              <v-avatar>
-                <v-img
-                  v-if="userData.profile.hasOwnProperty('image')"
-                  :src="userData.profile.image[0].contentUrl"
-                  height="150px"
-                  width="150px"
-                >
-                </v-img>
-                <v-img
-                  v-else
-                  height="150px"
-                  width="150px"
-                  src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
-                  gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
-                </v-img>
-              </v-avatar>
-              <v-list-tile>
-                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="float-right">
-                  <v-tooltip bottom v-if="!isAdded">
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">add_to_queue</v-icon>
-                    </v-btn>
-                    <span>Subscribe to this Channel</span>
-                  </v-tooltip>
+            <v-list>
+              <v-card class="">
+                <v-card-title></v-card-title>
+                <v-avatar>
+                  <v-img
+                    v-if="userData.profile.hasOwnProperty('image')"
+                    :src="userData.profile.image[0].contentUrl"
+                    height="150px"
+                    width="150px"
+                  >
+                  </v-img>
+                  <v-img
+                    v-else
+                    height="150px"
+                    width="150px"
+                    src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
+                    gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                  </v-img>
+                </v-avatar>
+                <v-list-tile>
+                  <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="float-right">
+                    <v-tooltip bottom v-if="!isAdded">
+                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
+                        <v-icon  color="purple accent-4">add_to_queue</v-icon>
+                      </v-btn>
+                      <span>Subscribe to this Channel</span>
+                    </v-tooltip>
 
-                  <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">delete</v-icon>
-                    </v-btn>
-                    <span>Unsubscribe from this Channel</span>
-                  </v-tooltip>
-                </v-list-tile-action>
-                <v-list-tile-action>
-                  <v-tooltip bottom>
-                    <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
-                    <span v-else> {{ userData.username }} </span>
-                  </v-tooltip>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                  <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
-                  <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-                  <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-card>
+                    <v-tooltip bottom v-else>
+                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
+                        <v-icon  color="purple accent-4">delete</v-icon>
+                      </v-btn>
+                      <span>Unsubscribe from this Channel</span>
+                    </v-tooltip>
+                  </v-list-tile-action>
+                  <v-list-tile-action>
+                    <v-tooltip bottom>
+                      <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
+                      <span v-else> {{ userData.username }} </span>
+                    </v-tooltip>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
+                    <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
+                    <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </v-card>
+            </v-list>
           </v-flex>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
-              <v-card class="br20" width="150%"><v-card-title><v-list-tile><v-list-tile-action>HEADER GOES HERE</v-list-tile-action></v-list-tile></v-card-title></v-card>
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile>
@@ -109,7 +110,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
-              <v-card class="br20" width="150%"><v-card-title><v-list-tile><v-list-tile-action>PLAYER GOES HERE</v-list-tile-action></v-list-tile></v-card-title></v-card>
+              <v-card class="br20" width="100%"><v-card-title><v-list-tile><v-list-tile-action><video width="400"><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-list-tile></v-card-title></v-card>
             </v-list>
           </v-flex>
         </v-layout>
@@ -295,8 +296,7 @@ export default {
   }
 }
 .br20 {
-  border-radius: 20px,
-  
+  border-radius: 20px
 }
 .qr-code {
   margin: 1% 0% 3% 0%
