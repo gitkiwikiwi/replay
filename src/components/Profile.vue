@@ -110,7 +110,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
-              <v-card class="br20" width="100%"><v-card-title><v-list-tile><v-list-tile-action><video width="400"><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-list-tile></v-card-title></v-card>
+              <v-card class="videoplayer" width="100%" height="245"><v-card-title><v-list-tile><v-list-tile-action><video width="400"><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-list-tile></v-card-title></v-card>
             </v-list>
           </v-flex>
         </v-layout>
@@ -296,6 +296,9 @@ export default {
   }
 }
 .br20 {
+  border-radius: 20px
+}
+.videoplayer {
   border-radius: 20px
 }
 .qr-code {
