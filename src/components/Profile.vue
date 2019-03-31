@@ -51,7 +51,6 @@
                       </v-btn>
                       <span>Subscribe to this Channel</span>
                     </v-tooltip>
-
                     <v-tooltip bottom v-else>
                       <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
                         <v-icon  color="purple accent-4">delete</v-icon>
@@ -59,25 +58,29 @@
                       <span>Unsubscribe from this Channel</span>
                     </v-tooltip>
                   </v-list-tile-action>
-                    <v-list-tile-action>
-                      <v-icon 
-												color="purple accent-4"
-												dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20"			
-											>fa-qrcode</v-icon>
-											<v-icon 
-												color="orange accent-4"
-											  :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
-                        block color="orange accent-4"
-                        :dark="hasBTCProof && $route.params.id !== 'my-profile'"
-                        class="br20"
-                        @click="redirectUser"
-											>fa-bitcoin</v-icon>
-											<v-icon 
-												color="blue accent-4"
-                        dark block color="blue accent-4"
-                        class="br20"
-                        @click="eventBus.$emit('payWithAltcoins')"			
-											>fa-rocket</v-icon>
+									<v-list-tile-action>
+										<v-icon 
+											color="purple accent-4"
+											dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20"			
+										>fa-qrcode</v-icon>
+									</v-list-tile-action>
+									<v-list-tile-action>
+										<v-icon 
+											color="orange accent-4"
+											:disabled="$route.params.id === 'my-profile' || !hasBTCProof"
+											block color="orange accent-4"
+											:dark="hasBTCProof && $route.params.id !== 'my-profile'"
+											class="br20"
+											@click="redirectUser"
+										>fa-bitcoin</v-icon>
+									</v-list-tile-action>
+									<v-list-tile-action>
+										<v-icon 
+											color="blue accent-4"
+											dark block color="blue accent-4"
+											class="br20"
+											@click="eventBus.$emit('payWithAltcoins')"			
+										>fa-rocket</v-icon>
                     </v-list-tile-action>
                   </v-list-tile>
                 </v-card-title>
