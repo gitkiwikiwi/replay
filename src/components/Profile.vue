@@ -24,21 +24,6 @@
                   </v-img>
                 </v-avatar>
                 <v-list-tile>
-                  <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="float-right">
-                    <v-tooltip bottom v-if="!isAdded">
-                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
-                        <v-icon  color="purple accent-4">add_to_queue</v-icon>
-                      </v-btn>
-                      <span>Subscribe to this Channel</span>
-                    </v-tooltip>
-
-                    <v-tooltip bottom v-else>
-                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
-                        <v-icon  color="purple accent-4">delete</v-icon>
-                      </v-btn>
-                      <span>Unsubscribe from this Channel</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
                   <v-list-tile-action>
                     <v-tooltip bottom>
                       <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
@@ -59,42 +44,41 @@
               <v-card class="br20">
                 <v-card-title>
                   <v-list-tile>
+									<v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="float-right">
+                    <v-tooltip bottom v-if="!isAdded">
+                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
+                        <v-icon  color="purple accent-4">add_to_queue</v-icon>
+                      </v-btn>
+                      <span>Subscribe to this Channel</span>
+                    </v-tooltip>
+
+                    <v-tooltip bottom v-else>
+                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
+                        <v-icon  color="purple accent-4">delete</v-icon>
+                      </v-btn>
+                      <span>Unsubscribe from this Channel</span>
+                    </v-tooltip>
+                  </v-list-tile-action>
                     <v-list-tile-action>
-                      <v-icon color="purple accent-4">fa-qrcode</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content >
-                      <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show Bitcoin Address</v-btn>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon color="orange accent-4">fa-bitcoin</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content >
-                      <v-btn
-                        :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
+                      <v-icon 
+												color="purple accent-4"
+												dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20"			
+											>fa-qrcode</v-icon>
+											<v-icon 
+												color="orange accent-4"
+											  :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
                         block color="orange accent-4"
                         :dark="hasBTCProof && $route.params.id !== 'my-profile'"
                         class="br20"
                         @click="redirectUser"
-                      >
-                        Donate with Bitcoin
-                      </v-btn>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon color="blue accent-4">fa-rocket</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content >
-                      <v-btn
+											>fa-bitcoin</v-icon>
+											<v-icon 
+												color="blue accent-4"
                         dark block color="blue accent-4"
                         class="br20"
-                        @click="eventBus.$emit('payWithAltcoins')"
-                      >
-                        Donate with Altcoin
-                      </v-btn>
-                    </v-list-tile-content>
+                        @click="eventBus.$emit('payWithAltcoins')"			
+											>fa-rocket</v-icon>
+                    </v-list-tile-action>
                   </v-list-tile>
                 </v-card-title>
               </v-card>
@@ -110,7 +94,7 @@
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
-              <v-card class="videoplayer" width="100%" height="360"><v-card-title><v-list-tile></v-list-tile><v-list-tile-action><video width="100%" controls><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-card-title></v-card>
+              <v-card class="videoplayer" width="100%" height="500"><v-card-title><v-list-tile></v-list-tile><v-list-tile-action><video width="100%" controls><source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video></v-list-tile-action></v-card-title></v-card>
             </v-list>
           </v-flex>
         </v-layout>
