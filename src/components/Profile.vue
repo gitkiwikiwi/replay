@@ -175,14 +175,14 @@ export default {
     },
     hubUrl () {
       if (this.searchedUserProfileData && this.searchedUserProfileData.hasOwnProperty('profile') && typeof this.searchedUserProfileData.profile.apps === 'object') {
-        let url = this.searchedUserProfileData.profile.apps[window.location.origin] || this.searchedUserProfileData.profile.apps['https://dapp_cryptocracy_io']
+        let url = this.searchedUserProfileData.profile.apps[window.location.origin] || this.searchedUserProfileData.profile.apps['https://replay_cryptocracy_io']
         this.getResourceCount(url)
         return url
       } else if (this.$route.params.id !== 'my-profile') {
         this.getResourceCount(null)
         return null
       } else if (this.profileData && this.profileData.profile) {
-        let url = this.profileData.profile.apps[window.location.origin] || this.profileData.profile.apps['https://dapp_cryptocracy_io']
+        let url = this.profileData.profile.apps[window.location.origin] || this.profileData.profile.apps['https://replay_cryptocracy_io']
         this.getResourceCount(url)
         return url
       }
