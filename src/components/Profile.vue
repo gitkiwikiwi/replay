@@ -5,8 +5,7 @@
         <v-layout class="br20" row wrap>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
-              <v-card class="">
-                <v-card-title></v-card-title>
+              <v-card class="br20">
                 <v-avatar>
                   <v-img
                     v-if="userData.profile.hasOwnProperty('image')"
@@ -23,6 +22,7 @@
                     gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                   </v-img>
                 </v-avatar>
+                <v-list-tile-action></v-list-tile-action>
                 <v-list-tile>
                   <v-list-tile-action>
                     <v-tooltip bottom>
@@ -58,6 +58,7 @@
                         <span>Unsubscribe from this Channel</span>
                       </v-tooltip>
                     </v-list-tile-action>
+                    <v-list-tile-action></v-list-tile-action>
                     <v-list-tile-action>
                       <v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon>
                     </v-list-tile-action>
