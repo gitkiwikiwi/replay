@@ -2,7 +2,7 @@
   <div>
     <div v-if="userData.hasOwnProperty('profile')" class="container profile-info">
       <v-container fluid="true">
-        <v-layout class="br20" align-start justify-space-around row fill-height>
+        <v-layout class="br20" row wrap>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
               <v-card class="br20">
