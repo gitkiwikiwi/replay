@@ -63,17 +63,13 @@
                       <v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-action>
-                      <v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block color="orange accent-4" :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20"	@click="redirectUser"
+                      <v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser"
                       >fa-bitcoin</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-action>
-                      <v-icon color="blue accent-4" dark block color="blue accent-4" class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
+                      <v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
                     </v-list-tile-action>
                   </v-list-tile>
-                </v-card-title>
-              </v-card>
-              <v-card class="br20">
-                <v-card-title>
                   <v-list-tile @click="redirectToResources('OwnedImages')">
                     <v-list-tile-action>
                       <v-icon color="teal accent-4">video_library</v-icon>
@@ -83,6 +79,7 @@
                       <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
+                </v-card-title>
               </v-card>
               <v-card width="flex x2">
                 <video controls class="videoplayer" width="100%" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
