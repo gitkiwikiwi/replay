@@ -84,7 +84,7 @@
                   </v-list-tile>
               </v-card>
               <v-card width="flex x2">
-                <video controls class="white--text" width="100%" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+                <video controls class="videoplayer" width="100%" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
                 <v-card-title>
                   <div>
                     <span class="grey--text">Created Date</span><br>
