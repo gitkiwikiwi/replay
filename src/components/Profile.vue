@@ -59,6 +59,15 @@
                       </v-tooltip>
                     </v-list-tile-action>
                     <v-list-tile-action></v-list-tile-action>
+                    <v-list-tile @click="redirectToResources('OwnedImages')">
+                      <v-list-tile-action>
+                        <v-icon color="purple accent-4">video_library</v-icon>
+                      </v-list-tile-action>
+                      <v-list-tile-content>
+                        <v-list-tile-title>{{resources.images}}</v-list-tile-title>
+                        <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
+                      </v-list-tile-content>
+                    </v-list-tile>
                     <v-list-tile-action>
                       <v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon>
                     </v-list-tile-action>
@@ -69,15 +78,6 @@
                     <v-list-tile-action>
                       <v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
                     </v-list-tile-action>
-                  </v-list-tile>
-                  <v-list-tile @click="redirectToResources('OwnedImages')">
-                    <v-list-tile-action>
-                      <v-icon color="teal accent-4">video_library</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>{{resources.images}}</v-list-tile-title>
-                      <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
-                    </v-list-tile-content>
                   </v-list-tile>
                 </v-card-title>
               </v-card>
